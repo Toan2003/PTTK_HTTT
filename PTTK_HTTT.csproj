@@ -46,52 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ThanhToan.cs">
+    <Compile Include="BUS\Class1.cs" />
+    <Compile Include="Controller\Class1.cs" />
+    <Compile Include="DBO\Class1.cs" />
+    <Compile Include="MH\ThanhToan\ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThanhToan.Designer.cs">
+    <Compile Include="MH\ThanhToan\ThanhToan.Designer.cs">
       <DependentUpon>ThanhToan.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThanhToanTraThang.cs">
+    <Compile Include="MH\ThanhToan\ThanhToanTraThang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThanhToanTraThang.Designer.cs">
+    <Compile Include="MH\ThanhToan\ThanhToanTraThang.Designer.cs">
       <DependentUpon>ThanhToanTraThang.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThanhToanTraGop.cs">
+    <Compile Include="MH\ThanhToan\ThanhToanTraGop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThanhToanTraGop.Designer.cs">
+    <Compile Include="MH\ThanhToan\ThanhToanTraGop.Designer.cs">
       <DependentUpon>ThanhToanTraGop.cs</DependentUpon>
     </Compile>
-    <Compile Include="LapDSGiaHanHopDong.cs">
+    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LapDSGiaHanHopDong.Designer.cs">
+    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
     </Compile>
-    <Compile Include="LapDSGiaHanHopDong1.cs">
+    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="MH\ThanhToan\.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ThanhToan.resx">
+    <EmbeddedResource Include="MH\ThanhToan\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThanhToanTraThang.resx">
+    <EmbeddedResource Include="MH\ThanhToan\ThanhToanTraThang.resx">
       <DependentUpon>ThanhToanTraThang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThanhToanTraGop.resx">
+    <EmbeddedResource Include="MH\ThanhToan\ThanhToanTraGop.resx">
       <DependentUpon>ThanhToanTraGop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LapDSGiaHanHopDong.resx">
+    <EmbeddedResource Include="MH\ThanhToan\LapDSGiaHanHopDong.resx">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LapDSGiaHanHopDong1.resx">
+    <EmbeddedResource Include="MH\ThanhToan\LapDSGiaHanHopDong1.resx">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -116,5 +119,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
