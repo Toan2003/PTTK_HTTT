@@ -55,6 +55,12 @@
     <Compile Include="MH\DuyetHoSoUngTuyen\DSHoSoUngVien.Designer.cs">
       <DependentUpon>DSHoSoUngVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\DuyetHoSoUngTuyen\CapNhatTrangThaiHoSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DuyetHoSoUngTuyen\CapNhatTrangThaiHoSo.Designer.cs">
+      <DependentUpon>CapNhatTrangThaiHoSo.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\ThanhToan\.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
       <SubType>Form</SubType>
@@ -102,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MH\DuyetHoSoUngTuyen\DSHoSoUngVien.resx">
       <DependentUpon>DSHoSoUngVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\DuyetHoSoUngTuyen\CapNhatTrangThaiHoSo.resx">
+      <DependentUpon>CapNhatTrangThaiHoSo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\ThanhToan\LapDSGiaHanHopDong.resx">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>

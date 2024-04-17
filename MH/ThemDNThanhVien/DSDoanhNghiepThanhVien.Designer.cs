@@ -35,9 +35,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(347, 392);
+            this.button1.Location = new System.Drawing.Point(259, 318);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 23);
+            this.button1.Size = new System.Drawing.Size(76, 37);
             this.button1.TabIndex = 0;
             this.button1.Text = "Thêm mới";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,20 +47,22 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 40);
+            this.dataGridView1.Location = new System.Drawing.Point(26, 32);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(729, 319);
+            this.dataGridView1.Size = new System.Drawing.Size(547, 259);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // DSDoanhNghiepThanhVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DSDoanhNghiepThanhVien";
             this.Text = "Danh sách doanh nghiệp thành viên";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

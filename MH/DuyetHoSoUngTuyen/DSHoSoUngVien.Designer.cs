@@ -28,75 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.HoSoUngVienDataGridView = new System.Windows.Forms.DataGridView();
+            this.congTyCombobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.sapXepCombobox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HoSoUngVienDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // HoSoUngVienDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(724, 357);
-            this.dataGridView1.TabIndex = 0;
+            this.HoSoUngVienDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HoSoUngVienDataGridView.Location = new System.Drawing.Point(25, 45);
+            this.HoSoUngVienDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HoSoUngVienDataGridView.Name = "HoSoUngVienDataGridView";
+            this.HoSoUngVienDataGridView.RowTemplate.Height = 24;
+            this.HoSoUngVienDataGridView.Size = new System.Drawing.Size(548, 290);
+            this.HoSoUngVienDataGridView.TabIndex = 0;
             // 
-            // comboBox1
+            // congTyCombobox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(88, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.congTyCombobox.FormattingEnabled = true;
+            this.congTyCombobox.Location = new System.Drawing.Point(66, 18);
+            this.congTyCombobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.congTyCombobox.Name = "congTyCombobox";
+            this.congTyCombobox.Size = new System.Drawing.Size(200, 21);
+            this.congTyCombobox.TabIndex = 3;
+            this.congTyCombobox.Text = "Tất cả (mặc định)";
+            this.congTyCombobox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 25);
+            this.label1.Location = new System.Drawing.Point(22, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Công ty";
             // 
-            // comboBox2
+            // sapXepCombobox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.sapXepCombobox.FormattingEnabled = true;
+            this.sapXepCombobox.Items.AddRange(new object[] {
             "Độ ưu tiên",
-            "Họ tên",
             "Ngày nộp"});
-            this.comboBox2.Location = new System.Drawing.Point(305, 22);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 5;
+            this.sapXepCombobox.Location = new System.Drawing.Point(369, 17);
+            this.sapXepCombobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sapXepCombobox.Name = "sapXepCombobox";
+            this.sapXepCombobox.Size = new System.Drawing.Size(92, 21);
+            this.sapXepCombobox.TabIndex = 5;
+            this.sapXepCombobox.Text = "Độ ưu tiên";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(242, 25);
+            this.label2.Location = new System.Drawing.Point(319, 20);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Sắp xếp";
             // 
             // DSHoSoUngVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.sapXepCombobox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.congTyCombobox);
+            this.Controls.Add(this.HoSoUngVienDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DSHoSoUngVien";
-            this.Text = "DSHoSoUngVien";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Danh sách Hồ sơ ứng viên";
+            ((System.ComponentModel.ISupportInitialize)(this.HoSoUngVienDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,10 +111,10 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView HoSoUngVienDataGridView;
+        private System.Windows.Forms.ComboBox congTyCombobox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox sapXepCombobox;
         private System.Windows.Forms.Label label2;
     }
 }
