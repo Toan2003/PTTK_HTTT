@@ -88,7 +88,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(153, 350);
+            this.button1.Location = new System.Drawing.Point(113, 350);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(178, 25);
             this.button1.TabIndex = 5;
@@ -97,7 +97,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(480, 350);
+            this.button2.Location = new System.Drawing.Point(499, 350);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(183, 25);
             this.button2.TabIndex = 6;
@@ -141,7 +141,7 @@
             this.textBox3.TabIndex = 10;
             this.textBox3.Text = "Chưa thanh toán";
             // 
-            // Form1
+            // ThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,7 +157,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "ThanhToan";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

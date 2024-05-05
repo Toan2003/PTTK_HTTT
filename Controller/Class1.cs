@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2.Controller
 {
-    internal class Class1
+    internal class QuiDinh
     {
+
     }
+
 }
