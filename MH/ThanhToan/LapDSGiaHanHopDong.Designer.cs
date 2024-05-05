@@ -44,6 +44,7 @@
             this.label1.Size = new System.Drawing.Size(308, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "LẬP DANH SÁCH CÔNG TY GIA HẠN HỢP ĐỒNG";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -90,7 +91,7 @@
             this.button1.Text = "Xem danh sách";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Form4
+            // LapDSGiaHanHopDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,7 +102,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form4";
+            this.Name = "LapDSGiaHanHopDong";
             this.Text = "Form4";
             this.ResumeLayout(false);
             this.PerformLayout();

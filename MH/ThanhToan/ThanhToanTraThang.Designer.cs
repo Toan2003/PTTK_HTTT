@@ -115,7 +115,7 @@
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(169, 234);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 20);
+            this.checkBox1.Size = new System.Drawing.Size(78, 20);
             this.checkBox1.TabIndex = 21;
             this.checkBox1.Text = "Tiền mặt";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(492, 234);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(143, 20);
+            this.checkBox2.Size = new System.Drawing.Size(140, 20);
             this.checkBox2.TabIndex = 22;
             this.checkBox2.Text = "Thanh toán qua thẻ";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -176,7 +176,7 @@
             this.textBox5.Size = new System.Drawing.Size(175, 22);
             this.textBox5.TabIndex = 27;
             // 
-            // Form2
+            // ThanhToanTraThang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -195,7 +195,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
+            this.Name = "ThanhToanTraThang";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
