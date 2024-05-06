@@ -47,8 +47,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\Class1.cs" />
+    <Compile Include="BUS\UngVienBUS.cs" />
     <Compile Include="Controller\Class1.cs" />
     <Compile Include="DBO\Class1.cs" />
+    <Compile Include="DBO\UngVienDBO.cs" />
+    <Compile Include="MH\DangKyUngTuyen\fApplicationRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DangKyUngTuyen\fApplicationRegister.Designer.cs">
+      <DependentUpon>fApplicationRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\DangKyUngTuyen\fCandidateRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DangKyUngTuyen\fCandidateRegister.Designer.cs">
+      <DependentUpon>fCandidateRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\DangKyUngTuyen\fCheckBrief.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DangKyUngTuyen\fCheckBrief.Designer.cs">
+      <DependentUpon>fCheckBrief.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\DangKyUngTuyen\MHDKTVUngVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DangKyUngTuyen\MHDKTVUngVien.Designer.cs">
+      <DependentUpon>MHDKTVUngVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\ThanhToan\ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +108,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MH\DangKyUngTuyen\MHDKTVUngVien.resx">
+      <DependentUpon>MHDKTVUngVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\ThanhToan\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
