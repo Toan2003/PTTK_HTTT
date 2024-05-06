@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using WindowsFormsApp2.DBO;
+using static WindowsFormsApp2.Program;
 
-namespace PTTK.Controller
+namespace WindowsFormsApp2.DBO
 {
-    internal class ThanhToanController
+    internal class Class1
     {
-
     }
-
+    
 }

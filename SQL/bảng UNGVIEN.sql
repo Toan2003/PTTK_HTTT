@@ -1,0 +1,28 @@
+﻿CREATE DATABASE QLHS;
+GO
+
+USE QLHS;
+GO
+DROP TABLE IF EXISTS UNGVIEN;
+
+CREATE TABLE UNGVIEN (
+    MAUNGVIEN CHAR(8) PRIMARY KEY,
+    HOTEN NVARCHAR(100),
+    SODIENTHOAI CHAR(10),
+    DIACHI NVARCHAR(200),
+    EMAIL NVARCHAR(50),
+    MATKHAU NVARCHAR(100)
+);
+GO
+
+USE QLHS;
+GO
+
+INSERT INTO UNGVIEN (MAUNGVIEN, HOTEN, SODIENTHOAI, DIACHI, EMAIL, MATKHAU)
+VALUES
+    ('UV000001', N'Nguyễn Văn A', '0987654321', N'123 Đường ABC, Quận XYZ, Thành phố HCM', 'nguyenvana@example.com', '123'),
+    ('UV000002', N'Trần Thị B', '0123456789', N'456 Đường XYZ, Quận ABC, Thành phố Hanoi', 'tranthib@example.com', '123'),
+    ('UV000003', N'Lê Văn C', '0909090909', N'789 Đường DEF, Quận MNO, Thành phố Đà Nẵng', 'levanc@example.com', '123');
+GO
+
+SELECT * FROM UNGVIEN;
