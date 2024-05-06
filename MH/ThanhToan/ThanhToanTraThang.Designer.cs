@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace PTTK.MH.ThanhToan
 {
     partial class ThanhToanTraThang
     {

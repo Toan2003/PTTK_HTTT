@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7F4D5891-98C0-47DF-9BBE-3039E90853E1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsApp2</RootNamespace>
-    <AssemblyName>WindowsFormsApp2</AssemblyName>
+    <RootNamespace>PTTK</RootNamespace>
+    <AssemblyName>PTTK</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS\Class1.cs" />
-    <Compile Include="Controller\Class1.cs" />
-    <Compile Include="DBO\Class1.cs" />
+    <Compile Include="BUS\HoaDonBUS.cs" />
+    <Compile Include="BUS\QuiDinhBUS.cs" />
+    <Compile Include="Controller\ThanhToanController.cs" />
+    <Compile Include="DBO\DataProvider.cs" />
+    <Compile Include="DBO\HoaDonDBO.cs" />
+    <Compile Include="DBO\QuiDinhDBO.cs" />
     <Compile Include="MH\ThanhToan\ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,16 +70,16 @@
     <Compile Include="MH\ThanhToan\ThanhToanTraGop.Designer.cs">
       <DependentUpon>ThanhToanTraGop.cs</DependentUpon>
     </Compile>
-    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong.cs">
+    <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong.Designer.cs">
+    <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
     </Compile>
-    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong1.cs">
+    <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MH\ThanhToan\.Designer.cs">
+    <Compile Include="MH\DSGiaHanHopDong\.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -91,10 +94,10 @@
     <EmbeddedResource Include="MH\ThanhToan\ThanhToanTraGop.resx">
       <DependentUpon>ThanhToanTraGop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MH\ThanhToan\LapDSGiaHanHopDong.resx">
+    <EmbeddedResource Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.resx">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MH\ThanhToan\LapDSGiaHanHopDong1.resx">
+    <EmbeddedResource Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong1.resx">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -105,6 +108,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

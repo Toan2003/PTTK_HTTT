@@ -8,21 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace PTTK
 {
-    public partial class Form5 : Form
+    public partial class LapDSGiaHanHopDong : Form
     {
-        public Form5()
+        public LapDSGiaHanHopDong()
         {
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void LapDSGiaHanHopDong_Load(object sender, EventArgs e)
         {
 
         }

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace PTTK.MH.ThanhToan
 {
     partial class ThanhToanTraGop
     {
@@ -44,9 +44,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Thanh_Toan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DotThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThoiGian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -195,36 +196,44 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Thanh_Toan,
-            this.Column1,
-            this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(187, 338);
+            this.DotThanhToan,
+            this.ThoiGian,
+            this.SoTien,
+            this.TinhTrang});
+            this.dataGridView1.Location = new System.Drawing.Point(95, 340);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 52);
+            this.dataGridView1.Size = new System.Drawing.Size(558, 52);
             this.dataGridView1.TabIndex = 43;
             // 
-            // Thanh_Toan
+            // DotThanhToan
             // 
-            this.Thanh_Toan.HeaderText = "Đợt thanh toán";
-            this.Thanh_Toan.MinimumWidth = 6;
-            this.Thanh_Toan.Name = "Thanh_Toan";
-            this.Thanh_Toan.Width = 125;
+            this.DotThanhToan.HeaderText = "Đợt thanh toán";
+            this.DotThanhToan.MinimumWidth = 6;
+            this.DotThanhToan.Name = "DotThanhToan";
+            this.DotThanhToan.Width = 125;
             // 
-            // Column1
+            // ThoiGian
             // 
-            this.Column1.HeaderText = "Thời gian";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
+            this.ThoiGian.HeaderText = "Thời gian";
+            this.ThoiGian.MinimumWidth = 6;
+            this.ThoiGian.Name = "ThoiGian";
+            this.ThoiGian.Width = 125;
             // 
-            // Column2
+            // SoTien
             // 
-            this.Column2.HeaderText = "Tổng số tiền";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
+            this.SoTien.HeaderText = "Tổng số tiền";
+            this.SoTien.MinimumWidth = 6;
+            this.SoTien.Name = "SoTien";
+            this.SoTien.Width = 125;
+            // 
+            // TinhTrang
+            // 
+            this.TinhTrang.HeaderText = "Tình trạng";
+            this.TinhTrang.MinimumWidth = 6;
+            this.TinhTrang.Name = "TinhTrang";
+            this.TinhTrang.Width = 125;
             // 
             // button1
             // 
@@ -235,7 +244,7 @@
             this.button1.Text = "Thanh toán";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Form3
+            // ThanhToanTraGop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -257,8 +266,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form3";
+            this.Name = "ThanhToanTraGop";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.ThanhToanTraGop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -283,9 +293,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Thanh_Toan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DotThanhToan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThoiGian;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TinhTrang;
     }
 }

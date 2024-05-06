@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2
+namespace PTTK.MH.ThanhToan
 {
     public partial class ThanhToanTraGop : Form
     {
@@ -18,6 +18,11 @@ namespace WindowsFormsApp2
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ThanhToanTraGop_Load(object sender, EventArgs e)
         {
 
         }

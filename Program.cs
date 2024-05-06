@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace WindowsFormsApp2
+using PTTK.MH.ThanhToan;
+namespace PTTK
 {
     internal static class Program
     {

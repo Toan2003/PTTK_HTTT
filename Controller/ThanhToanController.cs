@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp2.Controller
+namespace PTTK.Controller
 {
-    internal class QuiDinh
+    internal class ThanhToanController
     {
 
     }
