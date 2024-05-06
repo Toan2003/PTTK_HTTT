@@ -1,12 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WindowsFormsApp2.DBO;
 
 namespace WindowsFormsApp2.BUS
 {
-    internal class DoanhNghiepBUS
+    public class DoanhNghiepBUS
     {
+        private static DoanhNghiepBUS instance;
+
+        public static DoanhNghiepBUS Instance { get { if (instance == null) instance = new DoanhNghiepBUS(); return instance; } private set => instance = value; }
+
+        /*bool ThemDoanhNghiep(PhieuDangKyDNBUS phieuDangKy)
+        {
+
+        }
+
+        bool LayTTCongTy(String MaDoanhNghiep)
+        {
+
+        }*/
+
+        public bool KiemTraThanhVien(String username, String mst)
+        {
+            bool result = DoanhNghiepDBO.Instance.KiemTraTonTai(username, mst);
+
+            return result;
+        }
+
+
     }
 }

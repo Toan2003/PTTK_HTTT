@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.MH.ThemDNThanhVien;
 using WindowsFormsApp2.MH.DuyetHoSoUngTuyen;
 
 namespace WindowsFormsApp2

@@ -47,8 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\Class1.cs" />
+    <Compile Include="BUS\DoanhNghiepBUS.cs" />
+    <Compile Include="BUS\HoSoUngVienBUS.cs" />
+    <Compile Include="BUS\PhieuDangKyDNBUS.cs" />
     <Compile Include="Controller\Class1.cs" />
+    <Compile Include="DataProvider\DataProvider.cs" />
     <Compile Include="DBO\Class1.cs" />
+    <Compile Include="DBO\DoanhNghiepDBO.cs" />
+    <Compile Include="DBO\HoSoUngVienDBO.cs" />
+    <Compile Include="DBO\PhieuDangKyDNDBO.cs" />
+    <Compile Include="DTO\DoanhNghiepDTO.cs" />
+    <Compile Include="DTO\HoSoUngVienDTO.cs" />
+    <Compile Include="DTO\PhieuDangKyDNDTO.cs" />
     <Compile Include="MH\DuyetHoSoUngTuyen\DSHoSoUngVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,11 +102,17 @@
     <Compile Include="MH\ThanhToan\ThanhToanTraThang.Designer.cs">
       <DependentUpon>ThanhToanTraThang.cs</DependentUpon>
     </Compile>
-    <Compile Include="MH\ThemDNThanhVien\DSDoanhNghiepThanhVien.cs">
+    <Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MH\ThemDNThanhVien\DSDoanhNghiepThanhVien.Designer.cs">
-      <DependentUpon>DSDoanhNghiepThanhVien.cs</DependentUpon>
+    <Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.Designer.cs">
+      <DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.Designer.cs">
+      <DependentUpon>SuaPhieuDangKyDN.cs</DependentUpon>
     </Compile>
     <Compile Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.cs">
       <SubType>Form</SubType>
@@ -127,8 +143,11 @@
     <EmbeddedResource Include="MH\ThanhToan\ThanhToanTraThang.resx">
       <DependentUpon>ThanhToanTraThang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MH\ThemDNThanhVien\DSDoanhNghiepThanhVien.resx">
-      <DependentUpon>DSDoanhNghiepThanhVien.cs</DependentUpon>
+    <EmbeddedResource Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.resx">
+      <DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.resx">
+      <DependentUpon>SuaPhieuDangKyDN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.resx">
       <DependentUpon>ThemDoanhNghiepMoi.cs</DependentUpon>
