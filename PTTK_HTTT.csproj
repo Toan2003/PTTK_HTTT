@@ -78,6 +78,24 @@
     <Compile Include="MH\DangKyUngTuyen\MHDKTVUngVien.Designer.cs">
       <DependentUpon>MHDKTVUngVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\Dashboard\DashboardDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\Dashboard\DashboardDN.Designer.cs">
+      <DependentUpon>DashboardDN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\Dashboard\DashboardNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\Dashboard\DashboardNV.Designer.cs">
+      <DependentUpon>DashboardNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\Dashboard\DashboardUV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\Dashboard\DashboardUV.Designer.cs">
+      <DependentUpon>DashboardUV.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\ThanhToan\ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
