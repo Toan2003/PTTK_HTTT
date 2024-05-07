@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using PTTK.DBO;
 
-namespace PTTK.Controller
+namespace PTTK.BUS
 {
-    internal class ThanhToanController
+    internal class PhieuDangKyTuyenDungBUS
     {
-
+        string 
     }
-
 }

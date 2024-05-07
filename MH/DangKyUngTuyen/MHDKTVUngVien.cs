@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.BUS;
+using PTTK.BUS;
 
-namespace WindowsFormsApp2.MH.DangKyUngTuyen
+namespace PTTK.MH.DangKyUngTuyen
 {
     public partial class MHDKTVUngVien : Form
     {

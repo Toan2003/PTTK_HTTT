@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.MH.DangKyUngTuyen;
+using PTTK.MH.DangKyUngTuyen;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace WindowsFormsApp2
+namespace PTTK
 {
     internal static class Program
     {

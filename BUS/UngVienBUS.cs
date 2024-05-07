@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.DBO;
-using static WindowsFormsApp2.Program;
+using PTTK.DBO;
+using static PTTK.Program;
 
-namespace WindowsFormsApp2.BUS
+namespace PTTK.BUS
 {
     public class UngVienBUS
     {

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2.MH.DangKyUngTuyen
+﻿namespace PTTK.MH.DangKyUngTuyen
 {
     partial class MHDKTVUngVien
     {

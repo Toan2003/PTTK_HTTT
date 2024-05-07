@@ -17,19 +17,15 @@ namespace PTTK.MH.ThanhToan
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TimBtn_Click(object sender, EventArgs e)
+        {
+            string MaPhieu = MaPhieuDangKy.Text;
+            
         }
     }
 }

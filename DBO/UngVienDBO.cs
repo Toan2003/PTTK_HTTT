@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static WindowsFormsApp2.Program;
+using static PTTK.Program;
 
-namespace WindowsFormsApp2.DBO
+namespace PTTK.DBO
 {
     public class UngVienDBO
     {

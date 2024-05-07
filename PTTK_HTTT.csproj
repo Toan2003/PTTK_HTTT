@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\HoaDonBUS.cs" />
+    <Compile Include="BUS\PhieuDangKyTuyenDungBUS.cs" />
     <Compile Include="BUS\QuiDinhBUS.cs" />
     <Compile Include="Controller\ThanhToanController.cs" />
     <Compile Include="DBO\DataProvider.cs" />
     <Compile Include="DBO\HoaDonDBO.cs" />
+    <Compile Include="DBO\PhieuDangKyTuyenDungDBO.cs" />
     <Compile Include="DBO\QuiDinhDBO.cs" />
     <Compile Include="BUS\UngVienBUS.cs" />
     <Compile Include="DBO\UngVienDBO.cs" />

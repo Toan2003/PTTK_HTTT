@@ -29,36 +29,30 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.MaPhieuDangKy = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.TenKhachHang = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ThanhToanThang = new System.Windows.Forms.Button();
+            this.ThanhToanTraGop = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TongTien = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.MaDoanhNghiep = new System.Windows.Forms.TextBox();
+            this.TimBtn = new System.Windows.Forms.Button();
+            this.MaPhieuDangKy = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(343, 50);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(305, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 16);
+            this.label1.Size = new System.Drawing.Size(195, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "THANH TOÁN";
-            // 
-            // MaPhieuDangKy
-            // 
-            this.MaPhieuDangKy.FormattingEnabled = true;
-            this.MaPhieuDangKy.Location = new System.Drawing.Point(196, 95);
-            this.MaPhieuDangKy.Name = "MaPhieuDangKy";
-            this.MaPhieuDangKy.Size = new System.Drawing.Size(443, 24);
-            this.MaPhieuDangKy.TabIndex = 1;
             // 
             // label2
             // 
@@ -68,7 +62,6 @@
             this.label2.Size = new System.Drawing.Size(92, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Phiếu đăng ký";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -88,24 +81,24 @@
             this.TenKhachHang.Size = new System.Drawing.Size(243, 22);
             this.TenKhachHang.TabIndex = 4;
             // 
-            // button1
+            // ThanhToanThang
             // 
-            this.button1.Location = new System.Drawing.Point(113, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 25);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Thanh toán trả thẳng";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ThanhToanThang.Location = new System.Drawing.Point(113, 350);
+            this.ThanhToanThang.Name = "ThanhToanThang";
+            this.ThanhToanThang.Size = new System.Drawing.Size(178, 25);
+            this.ThanhToanThang.TabIndex = 5;
+            this.ThanhToanThang.Text = "Thanh toán trả thẳng";
+            this.ThanhToanThang.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // ThanhToanTraGop
             // 
-            this.button2.Location = new System.Drawing.Point(499, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 25);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Thanh toán trả góp";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ThanhToanTraGop.Location = new System.Drawing.Point(499, 350);
+            this.ThanhToanTraGop.Name = "ThanhToanTraGop";
+            this.ThanhToanTraGop.Size = new System.Drawing.Size(183, 25);
+            this.ThanhToanTraGop.TabIndex = 6;
+            this.ThanhToanTraGop.Text = "Thanh toán trả góp";
+            this.ThanhToanTraGop.UseVisualStyleBackColor = true;
+            this.ThanhToanTraGop.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -155,32 +148,51 @@
             // 
             // MaDoanhNghiep
             // 
-            this.MaDoanhNghiep.Location = new System.Drawing.Point(612, 144);
+            this.MaDoanhNghiep.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MaDoanhNghiep.Location = new System.Drawing.Point(610, 147);
             this.MaDoanhNghiep.Name = "MaDoanhNghiep";
-            this.MaDoanhNghiep.Size = new System.Drawing.Size(100, 22);
+            this.MaDoanhNghiep.ReadOnly = true;
+            this.MaDoanhNghiep.Size = new System.Drawing.Size(122, 22);
             this.MaDoanhNghiep.TabIndex = 12;
+            // 
+            // TimBtn
+            // 
+            this.TimBtn.Location = new System.Drawing.Point(467, 97);
+            this.TimBtn.Name = "TimBtn";
+            this.TimBtn.Size = new System.Drawing.Size(101, 29);
+            this.TimBtn.TabIndex = 13;
+            this.TimBtn.Text = "Tìm";
+            this.TimBtn.UseVisualStyleBackColor = true;
+            this.TimBtn.Click += new System.EventHandler(this.TimBtn_Click);
+            // 
+            // MaPhieuDangKy
+            // 
+            this.MaPhieuDangKy.Location = new System.Drawing.Point(196, 100);
+            this.MaPhieuDangKy.Name = "MaPhieuDangKy";
+            this.MaPhieuDangKy.Size = new System.Drawing.Size(243, 22);
+            this.MaPhieuDangKy.TabIndex = 14;
             // 
             // ThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.MaPhieuDangKy);
+            this.Controls.Add(this.TimBtn);
             this.Controls.Add(this.MaDoanhNghiep);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TongTien);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ThanhToanTraGop);
+            this.Controls.Add(this.ThanhToanThang);
             this.Controls.Add(this.TenKhachHang);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.MaPhieuDangKy);
             this.Controls.Add(this.label1);
             this.Name = "ThanhToan";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,18 +201,19 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox MaPhieuDangKy;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TenKhachHang;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ThanhToanThang;
+        private System.Windows.Forms.Button ThanhToanTraGop;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TongTien;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox MaDoanhNghiep;
+        private System.Windows.Forms.Button TimBtn;
+        private System.Windows.Forms.TextBox MaPhieuDangKy;
     }
 }
 
