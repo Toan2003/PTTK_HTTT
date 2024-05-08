@@ -46,20 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
-	  <Compile Include="BUS\Class1.cs" />
-	  <Compile Include="BUS\DoanhNghiepBUS.cs" />
-	  <Compile Include="BUS\HoSoUngVienBUS.cs" />
-	  <Compile Include="BUS\PhieuDangKyDNBUS.cs" />
-	  <Compile Include="Controller\Class1.cs" />
-	  <Compile Include="DataProvider\DataProvider.cs" />
-	  <Compile Include="DBO\Class1.cs" />
-	  <Compile Include="DBO\DoanhNghiepDBO.cs" />
-	  <Compile Include="DBO\HoSoUngVienDBO.cs" />
-	  <Compile Include="DBO\PhieuDangKyDNDBO.cs" />
-	  <Compile Include="DTO\DoanhNghiepDTO.cs" />
-	  <Compile Include="DTO\HoSoUngVienDTO.cs" />
-	  <Compile Include="DTO\PhieuDangKyDNDTO.cs" />
+    <Compile Include="BUS\DoanhNghiepBUS.cs" />
+    <Compile Include="BUS\HoSoUngVienBUS.cs" />
+    <Compile Include="BUS\PhieuDangKyDNBUS.cs" />
+    <Compile Include="DataProvider\DataProvider.cs" />
+    <Compile Include="DBO\Class1.cs" />
+    <Compile Include="DBO\DoanhNghiepDBO.cs" />
+    <Compile Include="DBO\HoSoUngVienDBO.cs" />
+    <Compile Include="DBO\PhieuDangKyDNDBO.cs" />
+    <Compile Include="DTO\DoanhNghiepDTO.cs" />
+    <Compile Include="DTO\HoSoUngVienDTO.cs" />
+    <Compile Include="DTO\PhieuDangKyDNDTO.cs" />
     <Compile Include="BUS\PhieuDangTuyenBUS.cs" />
     <Compile Include="BUS\HoaDonBUS.cs" />
     <Compile Include="BUS\QuiDinhBUS.cs" />
@@ -130,19 +127,6 @@
     <Compile Include="MH\DuyetHoSoUngTuyen\CapNhatTrangThaiHoSo.Designer.cs">
       <DependentUpon>CapNhatTrangThaiHoSo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MH\ThanhToan\.Designer.cs">
-      <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong.Designer.cs">
-      <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MH\ThanhToan\LapDSGiaHanHopDong1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MH\ThanhToan\ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,31 +152,30 @@
       <DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
     </Compile>
     <Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.cs">
-		<SubType>Form</SubType>
-	</Compile>
-	<Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.Designer.cs">
-		  <DependentUpon>SuaPhieuDangKyDN.cs</DependentUpon>
-	  </Compile>
-		<Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.Designer.cs">
+    <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.Designer.cs">
+      <DependentUpon>SuaPhieuDangKyDN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
     </Compile>
     <Compile Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.cs">
-		<SubType>Form</SubType>
-	</Compile>
-	<Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MH\DSGiaHanHopDong\.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
       <SubType>Form</SubType>
-    
     </Compile>
-	  <Compile Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.Designer.cs">
-		  <DependentUpon>ThemDoanhNghiepMoi.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.Designer.cs">
+      <DependentUpon>ThemDoanhNghiepMoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MH\DangKyUngTuyen\MHDKTVUngVien.resx">
@@ -206,12 +189,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MH\DuyetHoSoUngTuyen\CapNhatTrangThaiHoSo.resx">
       <DependentUpon>CapNhatTrangThaiHoSo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MH\ThanhToan\LapDSGiaHanHopDong.resx">
-      <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MH\ThanhToan\LapDSGiaHanHopDong1.resx">
-      <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\ThanhToan\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>
@@ -227,13 +204,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.resx">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.resx">
       <DependentUpon>SuaPhieuDangKyDN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong1.resx">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.resx">
       <DependentUpon>ThemDoanhNghiepMoi.cs</DependentUpon>
     </EmbeddedResource>
