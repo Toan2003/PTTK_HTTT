@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.MH.DangKyUngTuyen;
+using PTTK.MH.DangKyUngTuyen;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using PTTK.MH;
 
-namespace WindowsFormsApp2
+namespace PTTK
 {
     internal static class Program
     {
@@ -20,18 +21,16 @@ namespace WindowsFormsApp2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MHDKTVUngVien());
+            Application.Run(new Login());
         }
 
         public static class AppConfig
         {
             // Chuỗi kết nối mặc định
-            public static string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=QLHS;Integrated Security=True";
+            //public static string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=QLHS;Integrated Security=True";
             // Tên người dùng hiện tại
-            public static string CurrentUsername { get; set; }
+            public static string UsernameID { get; set; }
 
-            // Mật khẩu của người dùng hiện tại
-            public static string CurrentPassword { get; set; }
             public static string HashMatKhau(string matKhau)
             {
                 using (MD5 md5Hash = MD5.Create())

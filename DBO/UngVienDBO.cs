@@ -1,80 +1,85 @@
-﻿using System;
+﻿using PTTK.DBO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static WindowsFormsApp2.Program;
+using PTTK.BUS;
+using static PTTK.Program;
 
-namespace WindowsFormsApp2.DBO
+namespace PTTK.DBO
 {
-    public class UngVienDBO
+    internal class UngVienDBO
     {
-        private string connectionString;
+        DataProvider DataProvider { get; set; }
 
         public UngVienDBO()
         {
-            connectionString = AppConfig.connectionString;
+            DataProvider = new DataProvider();
         }
 
         public bool KiemTraTonTai(string soDienThoai)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            string query = "SELECT COUNT(*) FROM UNGVIEN WHERE SODIENTHOAI = '" + soDienThoai + "'";
+
+            DataProvider.OpenConect();
+            
+            int result = (int)DataProvider.ExecuteScalar(query);
+            DataProvider.CloseConect();
+
+            if (result > 0)//result != null && result.Rows.Count > 0)
             {
-                string query = "SELECT COUNT(*) FROM UNGVIEN WHERE SODIENTHOAI = @SoDienThoai";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@SoDienThoai", soDienThoai);
-
-                connection.Open();
-                int count = (int)command.ExecuteScalar();
-
-                return count > 0;
+                return true;
             }
+
+            
+            return false;
         }
 
         public string GetMaxMaUngVien()
         {
-            string maxMaUngVien = "";
+            string query = "SELECT MAX(MAUNGVIEN) FROM UNGVIEN";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            DataProvider.OpenConect();
+            DataTable result = DataProvider.ExecuteQuery(query);
+            DataProvider.CloseConect();
+
+            if (result != null && result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value)
             {
-                string query = "SELECT MAX(MAUNGVIEN) FROM UNGVIEN";
-                SqlCommand command = new SqlCommand(query, connection);
-
-                connection.Open();
-                object result = command.ExecuteScalar();
-
-                if (result != DBNull.Value)
-                {
-                    maxMaUngVien = result.ToString();
-
-                }
+                return result.Rows[0][0].ToString();
             }
 
-            return maxMaUngVien;
+            return "";
         }
 
-        public bool ThemUngVien(string maUngVien, string hoTen, string email, string diaChi, string soDienThoai, string matKhau)
+        public bool ThemUngVien(UngVienBUS ungVien)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            string maUngVien = ungVien.MaUngVien;
+            string hoTen = ungVien.HoTen;
+            string email = ungVien.Email;
+            string diaChi = ungVien.DiaChi;
+            string soDienThoai = ungVien.SoDienThoai;
+            string matKhau = ungVien.MatKhau;
+
+            string query = $"INSERT INTO UNGVIEN (MAUNGVIEN, HOTEN, SODIENTHOAI, DIACHI, EMAIL, MATKHAU) " +
+                           $"VALUES ('{maUngVien}', '{hoTen}', '{soDienThoai}', '{diaChi}', '{email}', '{matKhau}')";
+
+            DataProvider.OpenConect();
+            int result = DataProvider.ExecuteNonQuery(query);
+            DataProvider.CloseConect();
+
+            if (result > 0)
             {
-                string query = "INSERT INTO UNGVIEN (MAUNGVIEN, HOTEN, SODIENTHOAI, DIACHI, EMAIL, MATKHAU) " +
-                               "VALUES (@MaUngVien, @HoTen, @SoDienThoai, @DiaChi, @Email, @MatKhau)";
-
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@MaUngVien", maUngVien);
-                command.Parameters.AddWithValue("@HoTen", hoTen);
-                command.Parameters.AddWithValue("@SoDienThoai", soDienThoai);
-                command.Parameters.AddWithValue("@DiaChi", diaChi);
-                command.Parameters.AddWithValue("@Email", email);
-                command.Parameters.AddWithValue("@MatKhau", matKhau);
-
-                connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-
-                return rowsAffected > 0;
+                return true;
+            } else
+            {
+                return false;
             }
+           
+            
         }
     }
 }
