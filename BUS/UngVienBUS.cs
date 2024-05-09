@@ -1,17 +1,45 @@
 ﻿using System.Linq;
 using System.Windows.Forms;
-using WindowsFormsApp2.DBO;
+using PTTK.DBO;
 using static PTTK.Program;
 
-namespace WindowsFormsApp2.BUS
+namespace PTTK.BUS
 {
-    public class UngVienBUS
+    internal class UngVienBUS
     {
         private UngVienDBO ungVienDBO;
 
-        public UngVienBUS()
+        public string MaUngVien { get; set; }
+        public string HoTen { get; set; }
+        public string Email { get; set; }
+        public string DiaChi { get; set; }
+        public string SoDienThoai { get; set; }
+        public string MatKhau { get; set; }
+
+        public UngVienBUS(string hoTen, string email, string diaChi, string soDienThoai, string matKhau)
         {
             ungVienDBO = new UngVienDBO();
+
+            string maUngVien = "UV000001"; // Giả sử mã ứng viên bắt đầu từ UV00000001
+
+            string maxMaUngVien = ungVienDBO.GetMaxMaUngVien();
+            if (!string.IsNullOrEmpty(maxMaUngVien))
+            {
+                string currentNumberString = maxMaUngVien.Substring(2); // Lấy phần số từ mã ứng viên hiện tại
+                if (int.TryParse(currentNumberString, out int currentNumber))
+                {
+                    currentNumber++; // Tăng giá trị số hiện tại lên 1
+                    maUngVien = "UV" + currentNumber.ToString().PadLeft(6, '0'); // Tạo mã ứng viên mới
+                }
+
+            }
+            this.MaUngVien = maUngVien;
+            this.HoTen = hoTen;
+            this.Email = email;
+            this.DiaChi = diaChi;
+            this.SoDienThoai = soDienThoai;
+            this.MatKhau = matKhau;
+            
         }
 
         public bool KiemTraThongTin(string hoTen, string email, string diaChi, string soDienThoai, string matKhau, string xacNhanMatKhau)
@@ -56,30 +84,17 @@ namespace WindowsFormsApp2.BUS
             return true;
         }
 
-        public int ThemUngVien(string hoTen, string email, string diaChi, string soDienThoai, string matKhau)
-        {
-            string maUngVien = "UV000001"; // Giả sử mã ứng viên bắt đầu từ UV00000001
-
-            string maxMaUngVien = ungVienDBO.GetMaxMaUngVien();
-            if (!string.IsNullOrEmpty(maxMaUngVien))
-            {
-                string currentNumberString = maxMaUngVien.Substring(2); // Lấy phần số từ mã ứng viên hiện tại
-                if (int.TryParse(currentNumberString, out int currentNumber))
-                {
-                    currentNumber++; // Tăng giá trị số hiện tại lên 1
-                    maUngVien = "UV" + currentNumber.ToString().PadLeft(6, '0'); // Tạo mã ứng viên mới
-                }
-
-            }
+        public int ThemUngVien(UngVienBUS ungVien)
+        {            
 
             // Kiểm tra xem tài khoản đã tồn tại chưa
-            if (ungVienDBO.KiemTraTonTai(soDienThoai))
+            if (ungVienDBO.KiemTraTonTai(ungVien.SoDienThoai))
             {
                 return 100;
             }
 
-            string hashedMatKhau = AppConfig.HashMatKhau(matKhau);
-            if (ungVienDBO.ThemUngVien(maUngVien, hoTen, email, diaChi, soDienThoai, hashedMatKhau))
+            ungVien.MatKhau = AppConfig.HashMatKhau(ungVien.MatKhau); 
+            if (ungVienDBO.ThemUngVien(ungVien))
             {
                 return 1;
             }
@@ -90,9 +105,5 @@ namespace WindowsFormsApp2.BUS
 
         }
 
-        public void DangNhap(string soDienThoai, string matKhau)
-        {
-            MessageBox.Show("Khúc này đăng nhập nha");
-        }
     }
 }

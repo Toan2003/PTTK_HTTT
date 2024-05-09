@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.BUS;
+using PTTK.BUS;
+using PTTK.MH.Dashboard;
 
-namespace WindowsFormsApp2.MH.DangKyUngTuyen
+namespace PTTK.MH.DangKyUngTuyen
 {
     public partial class MHDKTVUngVien : Form
     {
@@ -18,7 +19,17 @@ namespace WindowsFormsApp2.MH.DangKyUngTuyen
         public MHDKTVUngVien()
         {
             InitializeComponent();
-            ungVienBUS = new UngVienBUS();
+            this.FormClosing += MHDKTVUngVien_FormClosing;
+            
+        }
+
+        private void MHDKTVUngVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DkiDN_UV f = new DkiDN_UV();
+                f.Show();
+            }
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)
@@ -31,18 +42,22 @@ namespace WindowsFormsApp2.MH.DangKyUngTuyen
             string matKhau = txtMatKhau.Text;
             string xacNhanMatKhau = txtXacNhanMatKhau.Text;
 
+            ungVienBUS = new UngVienBUS(hoTen, email, diaChi, soDienThoai, matKhau);
+
             // Kiểm tra thông tin
             if (!ungVienBUS.KiemTraThongTin(hoTen, email, diaChi, soDienThoai, matKhau, xacNhanMatKhau))
                 return;
 
+            
+
             // Thêm thành viên
-            int kq = ungVienBUS.ThemUngVien(hoTen, email, diaChi, soDienThoai, matKhau);
+            int kq = ungVienBUS.ThemUngVien(ungVienBUS);
             if ( kq == 1)
             {
-                MessageBox.Show("Đăng ký thành viên thành công!");
-                // Thực hiện đăng nhập
-                ungVienBUS.DangNhap(soDienThoai, matKhau);
+                MessageBox.Show("Đăng ký thành viên thành công!");               
                 this.Close(); // Đóng form đăng ký sau khi đăng nhập thành công
+                DashboardUV dashboardForm = new DashboardUV();
+                dashboardForm.Show();
             }
             else if (kq == 100)
             {
@@ -56,8 +71,7 @@ namespace WindowsFormsApp2.MH.DangKyUngTuyen
                     return;
                 }
                 else
-                {
-                    // Thoát chức năng đăng ký
+                {                    
                     this.Close();
                 }
             } else

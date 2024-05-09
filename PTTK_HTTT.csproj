@@ -49,12 +49,14 @@
     <Compile Include="BUS\DoanhNghiepBUS.cs" />
     <Compile Include="DataProvider\DataProvider.cs" />
     <Compile Include="DBO\DoanhNghiepDBO.cs" />
+    <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="BUS\PhieuDangTuyenBUS.cs" />
     <Compile Include="BUS\HoaDonBUS.cs" />
     <Compile Include="BUS\QuiDinhBUS.cs" />
     <Compile Include="Controller\ThanhToanController.cs" />
     <Compile Include="DBO\DataProvider.cs" />
     <Compile Include="DBO\HoaDonDBO.cs" />
+    <Compile Include="DBO\LoginDBO.cs" />
     <Compile Include="DBO\PhieuDangTuyenDBO.cs" />
     <Compile Include="DBO\QuiDinhDBO.cs" />
     <Compile Include="BUS\UngVienBUS.cs" />
@@ -101,11 +103,23 @@
     <Compile Include="MH\Dashboard\DashboardUV.Designer.cs">
       <DependentUpon>DashboardUV.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\DkiDN_UV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DkiDN_UV.Designer.cs">
+      <DependentUpon>DkiDN_UV.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.Designer.cs">
       <DependentUpon>MHLapPhieuCCTTDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="MH\ThanhToan\ThanhToan.cs">
       <SubType>Form</SubType>
@@ -161,11 +175,17 @@
     <EmbeddedResource Include="MH\DangKyUngTuyen\MHDKTVUngVien.resx">
       <DependentUpon>MHDKTVUngVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MH\DkiDN_UV.resx">
+      <DependentUpon>DkiDN_UV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\Dashboard\DashboardDN.resx">
       <DependentUpon>DashboardDN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.resx">
       <DependentUpon>MHLapPhieuCCTTDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\ThanhToan\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>

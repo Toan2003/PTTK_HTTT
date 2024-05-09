@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp2.DBO;
+using PTTK.DBO;
 
 namespace PTTK.Controller
 {

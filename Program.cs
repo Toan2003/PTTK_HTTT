@@ -1,9 +1,15 @@
 ﻿using PTTK.MH.ThemDNThanhVien;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using PTTK.MH.DangKyUngTuyen;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using PTTK.MH;
 
 namespace PTTK
 {
@@ -17,7 +23,7 @@ namespace PTTK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ThemDoanhNghiepMoi());
+            Application.Run(new Login());
         }
 
         public static class AppConfig
@@ -26,12 +32,10 @@ namespace PTTK
             private static readonly string phoneNumberPattern = @"^(0|\+84)(3[2-9]|5[689]|7[06-9]|8[1-689]|9[0-46-9])[0-9]{7}$";
 
             // Chuỗi kết nối mặc định
-            public static string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=QLHS;Integrated Security=True";
+            //public static string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=QLHS;Integrated Security=True";
             // Tên người dùng hiện tại
-            public static string CurrentUsername { get; set; }
+            public static string UsernameID { get; set; }
 
-            // Mật khẩu của người dùng hiện tại
-            public static string CurrentPassword { get; set; }
             public static string HashMatKhau(string matKhau)
             {
                 using (MD5 md5Hash = MD5.Create())
