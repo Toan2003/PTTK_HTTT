@@ -10,7 +10,7 @@ CREATE PROCEDURE ThemDoanhNghiep
 	@sdt CHAR(10),
 	@nguoidaidien NVARCHAR(50),
 	@username VARCHAR(20),
-	@password VARCHAR(20),
+	@password VARCHAR(100),
 	@trangthai NVARCHAR(20)
 AS
 BEGIN
@@ -22,5 +22,3 @@ BEGIN
 		VALUES (@MADN, @tencty, @mst, @diachi, @email, @sdt, @nguoidaidien, @username, @password, @trangthai)
 	COMMIT TRANSACTION;
 END
-
-SELECT * FROM DOANHNGHIEP
