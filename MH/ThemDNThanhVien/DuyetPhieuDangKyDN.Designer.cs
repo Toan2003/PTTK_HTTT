@@ -1,5 +1,5 @@
-﻿namespace WindowsFormsApp2.MH.ThemDNThanhVien
-{
+﻿namespace PTTK.MH.ThemDNThanhVien 
+{ 
     partial class DuyetPhieuDangKyDN
     {
         /// <summary>
@@ -32,10 +32,10 @@
             this.lbl_TimKiem = new System.Windows.Forms.Label();
             this.gridview_DanhSachPhieu = new System.Windows.Forms.DataGridView();
             this.btn_Duyet = new System.Windows.Forms.Button();
-            this.cbx_TimKiemTheo = new System.Windows.Forms.ComboBox();
-            this.lbl_Theo = new System.Windows.Forms.Label();
             this.btn_Tim = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
+            this.lbl_Theo = new System.Windows.Forms.Label();
+            this.cbx_TimKiemTheo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridview_DanhSachPhieu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@
             this.gridview_DanhSachPhieu.MultiSelect = false;
             this.gridview_DanhSachPhieu.Name = "gridview_DanhSachPhieu";
             this.gridview_DanhSachPhieu.ReadOnly = true;
-            this.gridview_DanhSachPhieu.RowHeadersWidth = 51;
+            this.gridview_DanhSachPhieu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.gridview_DanhSachPhieu.RowTemplate.Height = 24;
             this.gridview_DanhSachPhieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridview_DanhSachPhieu.Size = new System.Drawing.Size(872, 640);
@@ -86,31 +86,6 @@
             this.btn_Duyet.Text = "Duyệt";
             this.btn_Duyet.UseVisualStyleBackColor = true;
             this.btn_Duyet.Click += new System.EventHandler(this.btn_Duyet_Click);
-            // 
-            // cbx_TimKiemTheo
-            // 
-            this.cbx_TimKiemTheo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_TimKiemTheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_TimKiemTheo.FormattingEnabled = true;
-            this.cbx_TimKiemTheo.Items.AddRange(new object[] {
-            "Tên công ty",
-            "MST",
-            "Tên đăng nhập"});
-            this.cbx_TimKiemTheo.Location = new System.Drawing.Point(493, 31);
-            this.cbx_TimKiemTheo.Name = "cbx_TimKiemTheo";
-            this.cbx_TimKiemTheo.Size = new System.Drawing.Size(173, 30);
-            this.cbx_TimKiemTheo.TabIndex = 4;
-            this.cbx_TimKiemTheo.SelectedIndexChanged += new System.EventHandler(this.cbx_TimKiemTheo_SelectedIndexChanged);
-            // 
-            // lbl_Theo
-            // 
-            this.lbl_Theo.AutoSize = true;
-            this.lbl_Theo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Theo.Location = new System.Drawing.Point(420, 34);
-            this.lbl_Theo.Name = "lbl_Theo";
-            this.lbl_Theo.Size = new System.Drawing.Size(65, 28);
-            this.lbl_Theo.TabIndex = 5;
-            this.lbl_Theo.Text = "Theo";
             // 
             // btn_Tim
             // 
@@ -134,6 +109,31 @@
             this.btn_Sua.UseVisualStyleBackColor = true;
             this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
+            // lbl_Theo
+            // 
+            this.lbl_Theo.AutoSize = true;
+            this.lbl_Theo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Theo.Location = new System.Drawing.Point(435, 34);
+            this.lbl_Theo.Name = "lbl_Theo";
+            this.lbl_Theo.Size = new System.Drawing.Size(52, 22);
+            this.lbl_Theo.TabIndex = 5;
+            this.lbl_Theo.Text = "Theo";
+            // 
+            // cbx_TimKiemTheo
+            // 
+            this.cbx_TimKiemTheo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_TimKiemTheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_TimKiemTheo.FormattingEnabled = true;
+            this.cbx_TimKiemTheo.Items.AddRange(new object[] {
+            "Tên công ty",
+            "MST",
+            "Tên đăng nhập"});
+            this.cbx_TimKiemTheo.Location = new System.Drawing.Point(493, 31);
+            this.cbx_TimKiemTheo.Name = "cbx_TimKiemTheo";
+            this.cbx_TimKiemTheo.Size = new System.Drawing.Size(173, 30);
+            this.cbx_TimKiemTheo.TabIndex = 4;
+            this.cbx_TimKiemTheo.SelectedIndexChanged += new System.EventHandler(this.cbx_TimKiemTheo_SelectedIndexChanged);
+            // 
             // DuyetPhieuDangKyDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -147,9 +147,10 @@
             this.Controls.Add(this.gridview_DanhSachPhieu);
             this.Controls.Add(this.lbl_TimKiem);
             this.Controls.Add(this.txt_TimKiem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DuyetPhieuDangKyDN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DuyetPhieuDangKyDN";
+            this.Text = "Quản lý phiếu đăng ký Doanh nghiệp";
             ((System.ComponentModel.ISupportInitialize)(this.gridview_DanhSachPhieu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -162,9 +163,9 @@
         private System.Windows.Forms.Label lbl_TimKiem;
         private System.Windows.Forms.DataGridView gridview_DanhSachPhieu;
         private System.Windows.Forms.Button btn_Duyet;
-        private System.Windows.Forms.ComboBox cbx_TimKiemTheo;
-        private System.Windows.Forms.Label lbl_Theo;
         private System.Windows.Forms.Button btn_Tim;
         private System.Windows.Forms.Button btn_Sua;
+        private System.Windows.Forms.Label lbl_Theo;
+        private System.Windows.Forms.ComboBox cbx_TimKiemTheo;
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsApp2.DBO;
-using static WindowsFormsApp2.Program;
+using static PTTK.Program;
 
 namespace WindowsFormsApp2.BUS
 {
@@ -33,7 +29,7 @@ namespace WindowsFormsApp2.BUS
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                 return false;
             }
-            
+
             if (!AppConfig.IsValidEmail(email))
             {
                 MessageBox.Show("Email không hợp lệ.");
@@ -44,7 +40,7 @@ namespace WindowsFormsApp2.BUS
             {
                 MessageBox.Show("Số điện thoại không hợp lệ.");
                 return false;
-            }    
+            }
             if (matKhau.Length < 8)
             {
                 MessageBox.Show("Mật khẩu phải có ít nhất 8 ký tự.");
@@ -82,15 +78,16 @@ namespace WindowsFormsApp2.BUS
                 return 100;
             }
 
-            string hashedMatKhau = AppConfig.HashMatKhau(matKhau); 
+            string hashedMatKhau = AppConfig.HashMatKhau(matKhau);
             if (ungVienDBO.ThemUngVien(maUngVien, hoTen, email, diaChi, soDienThoai, hashedMatKhau))
             {
                 return 1;
-            } else
+            }
+            else
             {
                 return 0;
             }
-             
+
         }
 
         public void DangNhap(string soDienThoai, string matKhau)

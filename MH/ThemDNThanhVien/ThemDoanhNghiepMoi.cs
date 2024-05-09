@@ -1,16 +1,29 @@
-﻿using System;
+﻿using PTTK.BUS;
+using System;
 using System.Windows.Forms;
-using WindowsFormsApp2.BUS;
-using WindowsFormsApp2.DTO;
 
-namespace WindowsFormsApp2.MH.ThemDNThanhVien
+namespace PTTK.MH.ThemDNThanhVien
 {
     public partial class ThemDoanhNghiepMoi : Form
     {
-        private Timer debounceTimer = new Timer();
+        private Timer debounceUsernameTimer = new Timer();
+        private Timer debounceMSTTimer = new Timer();
         public ThemDoanhNghiepMoi()
         {
             InitializeComponent();
+            debounceUsernameTimer.Interval = 300;
+            debounceUsernameTimer.Tick += (sender, e) =>
+            {
+                debounceUsernameTimer.Stop();
+                KiemTraTenDangNhap();
+            };
+
+            debounceMSTTimer.Interval = 300;
+            debounceMSTTimer.Tick += (sender, e) =>
+            {
+                debounceMSTTimer.Stop();
+                KiemTraMaSoThue();
+            };
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -43,6 +56,42 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
 
         }
 
+        private void KiemTraTenDangNhap()
+        {
+            string username = txt_Username.Text;
+            if (username == "")
+            {
+                lbl_CheckValidUsername.Text = "Vui lòng nhập tên đăng nhập";
+                return;
+            }
+            else if (DoanhNghiepBUS.Instance.KiemTraTonTai(username, "Tên đăng nhập"))
+            {
+                lbl_CheckValidUsername.Text = "Tên đăng nhập đã tồn tại";
+            }
+            else
+            {
+                lbl_CheckValidUsername.Text = "Tên đăng nhập hợp lệ";
+            }
+        }
+
+        private void KiemTraMaSoThue()
+        {
+            string maSoThue = txt_MST.Text;
+            if (maSoThue == "")
+            {
+                lbl_CheckValidMST.Text = "Vui lòng nhập mã số thuế";
+                return;
+            }
+            else if (DoanhNghiepBUS.Instance.KiemTraTonTai(maSoThue, "MST"))
+            {
+                lbl_CheckValidMST.Text = "Mã số thuế đã tồn tại";
+            }
+            else
+            {
+                lbl_CheckValidMST.Text = "Mã số thuế hợp lệ";
+            }
+        }
+
         private void btn_DongY_Click(object sender, EventArgs e)
         {
             if (txt_TenCongTy.Text == "" || txt_Email.Text == "" || txt_MST.Text == "" || txt_NguoiDaiDien.Text == "" || txt_SDT.Text == "" || txt_DiaChi.Text == "" || txt_Username.Text == "" || txt_Password.Text == "" || txt_ConfirmPassword.Text == "")
@@ -51,20 +100,41 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
                 return;
             }
 
-            PhieuDangKyDNDTO phieuDangKy = new PhieuDangKyDNDTO(txt_TenCongTy.Text, txt_Email.Text, txt_MST.Text, txt_NguoiDaiDien.Text, txt_SDT.Text, txt_DiaChi.Text, txt_Username.Text, txt_Password.Text);
+            DoanhNghiepBUS phieuDangKy = new DoanhNghiepBUS(txt_TenCongTy.Text, txt_Email.Text, txt_MST.Text, txt_NguoiDaiDien.Text, txt_SDT.Text, txt_DiaChi.Text, txt_Username.Text, PTTK.Program.AppConfig.HashMatKhau(txt_Password.Text), "CHƯA DUYỆT");
             bool tonTaiCheck = DoanhNghiepBUS.Instance.KiemTraThanhVien(txt_Username.Text, txt_MST.Text);
             if (tonTaiCheck)
             {
                 MessageBox.Show("Tên đăng nhập hoặc MST đã tồn tại");
                 return;
             }
-
-            bool result = PhieuDangKyDNBUS.Instance.TaoPhieuDangKy(phieuDangKy);
+            if (!PTTK.Program.AppConfig.IsValidTaxIdentificationNumber(txt_MST.Text))
+            {
+                MessageBox.Show("Mã số thuế không hợp lệ");
+                return;
+            }
+            if (txt_ConfirmPassword.Text != txt_Password.Text)
+            {
+                MessageBox.Show("Mật khẩu không khớp");
+                return;
+            }
+            if (!PTTK.Program.AppConfig.IsValidEmail(txt_Email.Text))
+            {
+                MessageBox.Show("Email không hợp lệ");
+                return;
+            }
+            if (!PTTK.Program.AppConfig.IsValidPhoneNumber(txt_SDT.Text))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ");
+                return;
+            }
+            bool result = DoanhNghiepBUS.Instance.TaoPhieuDangKy(phieuDangKy);
             if (result)
             {
                 MessageBox.Show("Đăng ký thành công");
+                Dispose();
                 return;
             }
+
             else
             {
                 MessageBox.Show("Đăng ký thất bại");
@@ -74,7 +144,7 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
-
+            Dispose();
         }
 
 
@@ -93,6 +163,44 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
         private void ThemDoanhNghiepMoi_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+
+        private void lbl_CheckEmail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Email_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_Email.Text == "")
+            {
+                lbl_CheckEmail.Text = "Vui lòng nhập email";
+                return;
+            }
+            else if (!PTTK.Program.AppConfig.IsValidEmail(txt_Email.Text))
+            {
+                lbl_CheckEmail.Text = "Email không hợp lệ";
+                return;
+            }
+            else
+            {
+                lbl_CheckEmail.Text = "";
+            }
+        }
+
+        private void txt_Username_TextChanged(object sender, EventArgs e)
+        {
+            debounceUsernameTimer.Stop();
+            debounceUsernameTimer.Start();
+        }
+
+
+        private void txt_MST_TextChanged(object sender, EventArgs e)
+        {
+            debounceMSTTimer.Stop();
+            debounceMSTTimer.Start();
         }
     }
 }

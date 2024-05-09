@@ -1,7 +1,8 @@
-﻿using System.Data;
+﻿using PTTK.BUS;
+using System.Data;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp2.MH.ThemDNThanhVien
+namespace PTTK.MH.ThemDNThanhVien
 {
     public partial class DuyetPhieuDangKyDN : Form
     {
@@ -13,12 +14,11 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
 
         public void HienThi()
         {
-            gridview_DanhSachPhieu.DataSource = BUS.PhieuDangKyDNBUS.Instance.LayDanhSachPhieuDangKy();
+            gridview_DanhSachPhieu.DataSource = DoanhNghiepBUS.Instance.LayPhieuDangKyChuaDuyet();
             foreach (DataGridViewColumn column in gridview_DanhSachPhieu.Columns)
             {
                 // Set the AutoSizeMode to display all content without clipping
-                if (column.Name != "MST" && column.Name != "TENCONGTY")
-                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             }
             cbx_TimKiemTheo.SelectedItem = "Tên công ty";
@@ -30,7 +30,7 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
             if (gridview_DanhSachPhieu.SelectedRows.Count > 0)
             {
                 string maPhieuDangKy = gridview_DanhSachPhieu.SelectedRows[0].Cells[0].Value.ToString();
-                bool result = BUS.PhieuDangKyDNBUS.Instance.DuyetPhieuDangKy(maPhieuDangKy);
+                bool result = DoanhNghiepBUS.Instance.DuyetPhieuDangKy(maPhieuDangKy);
                 if (result)
                 {
                     MessageBox.Show("Duyệt phiếu thành công");
@@ -56,8 +56,12 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
         {
             string keyword = txt_TimKiem.Text;
             string option = cbx_TimKiemTheo.Text;
-            DataTable result = BUS.PhieuDangKyDNBUS.Instance.TimPhieuDangKy(keyword, option);
+            DataTable result = DoanhNghiepBUS.Instance.TimPhieuDangKy(keyword, option);
             gridview_DanhSachPhieu.DataSource = result;
+            foreach (DataGridViewColumn column in gridview_DanhSachPhieu.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
             return;
 
         }
@@ -69,7 +73,32 @@ namespace WindowsFormsApp2.MH.ThemDNThanhVien
 
         private void btn_Sua_Click(object sender, System.EventArgs e)
         {
+            //madn, username, tencty, masothue, nguoidaidien, diachi, email, sdt
+            string maPhieuDangKy = gridview_DanhSachPhieu.SelectedRows[0].Cells[0].Value.ToString();
+            string username = gridview_DanhSachPhieu.SelectedRows[0].Cells[1].Value.ToString();
+            string tenCongTy = gridview_DanhSachPhieu.SelectedRows[0].Cells[2].Value.ToString();
+            string mst = gridview_DanhSachPhieu.SelectedRows[0].Cells[3].Value.ToString();
+            string nguoiDaiDien = gridview_DanhSachPhieu.SelectedRows[0].Cells[4].Value.ToString();
+            string diaChi = gridview_DanhSachPhieu.SelectedRows[0].Cells[5].Value.ToString();
+            string email = gridview_DanhSachPhieu.SelectedRows[0].Cells[6].Value.ToString();
+            string sdt = gridview_DanhSachPhieu.SelectedRows[0].Cells[7].Value.ToString();
 
+            DoanhNghiepBUS doanhNghiep = new DoanhNghiepBUS();
+            doanhNghiep.MaDN = maPhieuDangKy;
+            doanhNghiep.Username = username;
+            doanhNghiep.TenCongTy = tenCongTy;
+            doanhNghiep.DiaChi = diaChi;
+            doanhNghiep.EmailLienHe = email;
+            doanhNghiep.MST = mst;
+            doanhNghiep.NguoiDaiDien = nguoiDaiDien;
+            doanhNghiep.SDT = sdt;
+
+            SuaPhieuDangKyDN suaPhieuDangKyDN = new SuaPhieuDangKyDN(doanhNghiep);
+            suaPhieuDangKyDN.ShowDialog();
+            if (suaPhieuDangKyDN.DialogResult == DialogResult.OK)
+            {
+                HienThi();
+            }
         }
     }
 }
