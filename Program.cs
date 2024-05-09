@@ -7,6 +7,7 @@ using WindowsFormsApp2.MH.DangKyUngTuyen;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using PTTK.MH.LapPhieuCCTTDT;
 
 namespace WindowsFormsApp2
 {
@@ -20,7 +21,7 @@ namespace WindowsFormsApp2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MHDKTVUngVien());
+            Application.Run(new XemPDTDN());
         }
 
         public static class AppConfig

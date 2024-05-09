@@ -10,7 +10,9 @@ namespace PTTK.DBO
 {
     internal class DataProvider
     {
-        /*TOAN*/ string connectionString = "Data Source=MSI;Initial Catalog=master;Integrated Security=True;Trust Server Certificate=True";
+        ///*TOAN*/ string connectionString = "Data Source=MSI;Initial Catalog=master;Integrated Security=True;Trust Server Certificate=True";
+        /*HOA*/
+        string connectionString = "Data Source=.;Initial Catalog=PTTK;Integrated Security=True";
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter adt;

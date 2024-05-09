@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,11 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\DichVuBUS.cs" />
     <Compile Include="BUS\PhieuDangTuyenBUS.cs" />
     <Compile Include="BUS\HoaDonBUS.cs" />
     <Compile Include="BUS\QuiDinhBUS.cs" />
     <Compile Include="Controller\ThanhToanController.cs" />
     <Compile Include="DBO\DataProvider.cs" />
+    <Compile Include="DBO\DichVuDBO.cs" />
     <Compile Include="DBO\HoaDonDBO.cs" />
     <Compile Include="DBO\PhieuDangTuyenDBO.cs" />
     <Compile Include="DBO\QuiDinhDBO.cs" />
@@ -104,6 +121,18 @@
     <Compile Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.Designer.cs">
       <DependentUpon>MHLapPhieuCCTTDT.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPDTDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPDTDN.Designer.cs">
+      <DependentUpon>XemPDTDN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPhieuDangTuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPhieuDangTuyen.Designer.cs">
+      <DependentUpon>XemPhieuDangTuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\ThanhToan\ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +172,12 @@
     <EmbeddedResource Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.resx">
       <DependentUpon>MHLapPhieuCCTTDT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MH\LapPhieuCCTTDT\XemPDTDN.resx">
+      <DependentUpon>XemPDTDN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\LapPhieuCCTTDT\XemPhieuDangTuyen.resx">
+      <DependentUpon>XemPhieuDangTuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\ThanhToan\ThanhToan.resx">
       <DependentUpon>ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +216,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
