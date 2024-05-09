@@ -13,6 +13,8 @@ namespace PTTK.DBO
         ///*TOAN*/ string connectionString = "Data Source=MSI;Initial Catalog=master;Integrated Security=True;Trust Server Certificate=True";
         /*HOA*/
         string connectionString = "Data Source=.;Initial Catalog=PTTK;Integrated Security=True";
+        ///*TOAN*/ string connectionString = "Data Source=MSI;Initial Catalog=master;Integrated Security=True;Trust Server Certificate=True";
+        /*DUY*/ string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=PTTK;Integrated Security=True";
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter adt;
@@ -53,5 +55,25 @@ namespace PTTK.DBO
                 return -1;
             }
         }
+
+        public object ExecuteScalar(string query)
+        {
+            try
+            {
+                object result;
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {                    
+                    result = cmd.ExecuteScalar();
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi thực thi câu truy vấn: " + ex.Message);
+                return null;
+            }
+            
+        }
+
     }
 }

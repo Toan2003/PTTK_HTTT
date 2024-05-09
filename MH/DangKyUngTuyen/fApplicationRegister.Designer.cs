@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp2
+﻿namespace PTTK
 {
     partial class fApplicationRegister
     {
