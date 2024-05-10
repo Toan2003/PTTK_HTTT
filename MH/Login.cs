@@ -1,13 +1,6 @@
 ﻿using PTTK.BUS;
 using PTTK.MH.Dashboard;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PTTK.Program;
 
@@ -19,11 +12,18 @@ namespace PTTK.MH
         {
             InitializeComponent();
             this.FormClosing += Login_FormClosing;
+
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Clear_Textboxes()
+        {
+            txtPassword.Text = "";
+            txtUsername.Text = "";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -40,16 +40,21 @@ namespace PTTK.MH
                 this.Hide();
                 DashboardUV dashboardForm = new DashboardUV();
                 dashboardForm.Show();
-            } else if (role == "Business")
+                Clear_Textboxes();
+            }
+            else if (role == "Business")
             {
                 this.Hide();
-                DashboardDN dashboardForm = new DashboardDN();
+                DashboardDN dashboardForm = new DashboardDN(this, new DoanhNghiepBUS(username));
                 dashboardForm.Show();
-            } else if (role == "Employee")
+                Clear_Textboxes();
+            }
+            else if (role == "Employee")
             {
                 this.Hide();
                 DashboardNV dashboardForm = new DashboardNV();
                 dashboardForm.Show();
+                Clear_Textboxes();
             }
             else
             {
@@ -60,7 +65,7 @@ namespace PTTK.MH
         private void lblDki_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DkiDN_UV f = new DkiDN_UV();
+            DkiDN_UV f = new DkiDN_UV(this);
             f.ShowDialog();
         }
     }

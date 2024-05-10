@@ -120,6 +120,7 @@
             this.Controls.Add(this.Username);
             this.Controls.Add(this.Titile);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.ResumeLayout(false);
             this.PerformLayout();

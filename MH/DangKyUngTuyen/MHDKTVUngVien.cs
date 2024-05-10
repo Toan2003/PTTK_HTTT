@@ -1,34 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PTTK.BUS;
+﻿using PTTK.BUS;
 using PTTK.MH.Dashboard;
+using System;
+using System.Windows.Forms;
 
 namespace PTTK.MH.DangKyUngTuyen
 {
     public partial class MHDKTVUngVien : Form
     {
         private UngVienBUS ungVienBUS;
+        private Form parent;
 
-        public MHDKTVUngVien()
+        public MHDKTVUngVien(Form parent)
         {
             InitializeComponent();
             this.FormClosing += MHDKTVUngVien_FormClosing;
-            
+            this.parent = parent;
         }
 
         private void MHDKTVUngVien_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                DkiDN_UV f = new DkiDN_UV();
-                f.Show();
+                parent.Close();
             }
         }
 
@@ -48,13 +41,13 @@ namespace PTTK.MH.DangKyUngTuyen
             if (!ungVienBUS.KiemTraThongTin(hoTen, email, diaChi, soDienThoai, matKhau, xacNhanMatKhau))
                 return;
 
-            
+
 
             // Thêm thành viên
             int kq = ungVienBUS.ThemUngVien(ungVienBUS);
-            if ( kq == 1)
+            if (kq == 1)
             {
-                MessageBox.Show("Đăng ký thành viên thành công!");               
+                MessageBox.Show("Đăng ký thành viên thành công!");
                 this.Close(); // Đóng form đăng ký sau khi đăng nhập thành công
                 DashboardUV dashboardForm = new DashboardUV();
                 dashboardForm.Show();
@@ -71,10 +64,11 @@ namespace PTTK.MH.DangKyUngTuyen
                     return;
                 }
                 else
-                {                    
+                {
                     this.Close();
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Đăng ký không thành công, vui lòng thử lại sau !");
             }

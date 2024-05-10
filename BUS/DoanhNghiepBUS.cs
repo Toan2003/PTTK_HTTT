@@ -164,5 +164,19 @@ namespace PTTK.BUS
             Console.WriteLine(result);
             return result;
         }
+
+        public DoanhNghiepBUS(string username)
+        {
+            DataTable result = DoanhNghiepDBO.Instance.LayThongTin(username);
+            this.MaDN = result.Rows[0]["MADN"].ToString();
+            this.TenCongTy = result.Rows[0]["TENCTY"].ToString();
+            this.EmailLienHe = result.Rows[0]["EMAIL"].ToString();
+            this.MST = result.Rows[0]["MASOTHUE"].ToString();
+            this.NguoiDaiDien = result.Rows[0]["NGUOIDAIDIEN"].ToString();
+            this.SDT = result.Rows[0]["SDT"].ToString();
+            this.DiaChi = result.Rows[0]["DIACHI"].ToString();
+            this.Username = result.Rows[0]["USERNAME"].ToString();
+        }
+
     }
 }

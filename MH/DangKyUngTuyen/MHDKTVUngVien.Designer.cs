@@ -201,6 +201,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtHoTen);
             this.Name = "MHDKTVUngVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MHDKTVUngVien";
             this.ResumeLayout(false);
             this.PerformLayout();

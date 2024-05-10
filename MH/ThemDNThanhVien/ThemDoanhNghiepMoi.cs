@@ -6,11 +6,13 @@ namespace PTTK.MH.ThemDNThanhVien
 {
     public partial class ThemDoanhNghiepMoi : Form
     {
+        private Form parent;
         private Timer debounceUsernameTimer = new Timer();
         private Timer debounceMSTTimer = new Timer();
-        public ThemDoanhNghiepMoi()
+        public ThemDoanhNghiepMoi(Form parent)
         {
             InitializeComponent();
+            this.FormClosing += ThemDoanhNghiepMoi_FormClosing;
             debounceUsernameTimer.Interval = 300;
             debounceUsernameTimer.Tick += (sender, e) =>
             {
@@ -24,6 +26,16 @@ namespace PTTK.MH.ThemDNThanhVien
                 debounceMSTTimer.Stop();
                 KiemTraMaSoThue();
             };
+            this.parent = parent;
+        }
+
+        private void ThemDoanhNghiepMoi_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Chuyển về form DN
+                parent.Show();
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -100,14 +112,14 @@ namespace PTTK.MH.ThemDNThanhVien
                 return;
             }
 
-            DoanhNghiepBUS phieuDangKy = new DoanhNghiepBUS(txt_TenCongTy.Text, txt_Email.Text, txt_MST.Text, txt_NguoiDaiDien.Text, txt_SDT.Text, txt_DiaChi.Text, txt_Username.Text, PTTK.Program.AppConfig.HashMatKhau(txt_Password.Text), "CHƯA DUYỆT");
+            DoanhNghiepBUS phieuDangKy = new DoanhNghiepBUS(txt_TenCongTy.Text, txt_Email.Text.Trim(), txt_MST.Text.Trim(), txt_NguoiDaiDien.Text, txt_SDT.Text.Trim(), txt_DiaChi.Text, txt_Username.Text.Trim(), PTTK.Program.AppConfig.HashMatKhau(txt_Password.Text), "CHƯA DUYỆT");
             bool tonTaiCheck = DoanhNghiepBUS.Instance.KiemTraThanhVien(txt_Username.Text, txt_MST.Text);
             if (tonTaiCheck)
             {
                 MessageBox.Show("Tên đăng nhập hoặc MST đã tồn tại");
                 return;
             }
-            if (!PTTK.Program.AppConfig.IsValidTaxIdentificationNumber(txt_MST.Text))
+            if (!PTTK.Program.AppConfig.IsValidTaxIdentificationNumber(txt_MST.Text.Trim()))
             {
                 MessageBox.Show("Mã số thuế không hợp lệ");
                 return;
@@ -117,12 +129,12 @@ namespace PTTK.MH.ThemDNThanhVien
                 MessageBox.Show("Mật khẩu không khớp");
                 return;
             }
-            if (!PTTK.Program.AppConfig.IsValidEmail(txt_Email.Text))
+            if (!PTTK.Program.AppConfig.IsValidEmail(txt_Email.Text.Trim()))
             {
                 MessageBox.Show("Email không hợp lệ");
                 return;
             }
-            if (!PTTK.Program.AppConfig.IsValidPhoneNumber(txt_SDT.Text))
+            if (!PTTK.Program.AppConfig.IsValidPhoneNumber(txt_SDT.Text.Trim()))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ");
                 return;
@@ -131,6 +143,7 @@ namespace PTTK.MH.ThemDNThanhVien
             if (result)
             {
                 MessageBox.Show("Đăng ký thành công");
+                Close();
                 Dispose();
                 return;
             }
@@ -144,6 +157,7 @@ namespace PTTK.MH.ThemDNThanhVien
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
+            Close();
             Dispose();
         }
 

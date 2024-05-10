@@ -1,15 +1,9 @@
-﻿using PTTK.MH.ThemDNThanhVien;
+﻿using PTTK.MH;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PTTK.MH.DangKyUngTuyen;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using PTTK.MH;
 
 namespace PTTK
 {

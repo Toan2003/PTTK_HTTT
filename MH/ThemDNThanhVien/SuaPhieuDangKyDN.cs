@@ -84,16 +84,16 @@ namespace PTTK.MH.ThemDNThanhVien
             if (txt_TenCongTy.Text == "" || txt_DiaChi.Text == "" || txt_EmailLienHe.Text == "" || txt_MaSoThue.Text == "" ||
                 txt_Username.Text == "" || txt_NguoiDaiDien.Text == "" || txt_SDT.Text == "")
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");
-            else if (txt_DiaChi.Text == thongTinHienTai.DiaChi && txt_EmailLienHe.Text == thongTinHienTai.EmailLienHe && txt_MaSoThue.Text == thongTinHienTai.MST &&
-                txt_NguoiDaiDien.Text == thongTinHienTai.NguoiDaiDien && txt_SDT.Text == thongTinHienTai.SDT && txt_TenCongTy.Text == thongTinHienTai.TenCongTy &&
-                txt_Username.Text == thongTinHienTai.Username)
+            else if (txt_DiaChi.Text == thongTinHienTai.DiaChi && txt_EmailLienHe.Text.Trim() == thongTinHienTai.EmailLienHe && txt_MaSoThue.Text.Trim() == thongTinHienTai.MST &&
+                txt_NguoiDaiDien.Text == thongTinHienTai.NguoiDaiDien && txt_SDT.Text.Trim() == thongTinHienTai.SDT && txt_TenCongTy.Text == thongTinHienTai.TenCongTy &&
+                txt_Username.Text.Trim() == thongTinHienTai.Username)
             {
                 MessageBox.Show("Không có thông tin nào thay đổi");
                 Dispose();
             }
             else
             {
-                bool tonTaiCheck = DoanhNghiepBUS.Instance.KiemTraThanhVien(txt_Username.Text, txt_MaSoThue.Text);
+                bool tonTaiCheck = DoanhNghiepBUS.Instance.KiemTraThanhVien(txt_Username.Text.Trim(), txt_MaSoThue.Text.Trim());
                 if (tonTaiCheck)
                 {
                     MessageBox.Show("Tên đăng nhập hoặc MST đã tồn tại");

@@ -74,6 +74,7 @@
             this.Controls.Add(this.btnDN);
             this.Controls.Add(this.label1);
             this.Name = "DkiDN_UV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 

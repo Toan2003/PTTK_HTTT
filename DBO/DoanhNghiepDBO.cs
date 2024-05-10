@@ -81,5 +81,16 @@ namespace PTTK.DBO
 
             return result > 0;
         }
+
+        public DataTable LayThongTin(string username)
+        {
+            string query = $"select MADN, TENCTY, MASOTHUE, DIACHI, EMAIL, SDT, NGUOIDAIDIEN, USERNAME from doanhnghiep where username = '{username}'";
+
+            dataProvider.OpenConect();
+            DataTable result = dataProvider.ExecuteQuery(query);
+            dataProvider.CloseConect();
+
+            return result;
+        }
     }
 }
