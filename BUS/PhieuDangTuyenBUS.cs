@@ -22,8 +22,9 @@ namespace PTTK.BUS
         public string TrangThaiTT { get; set; }
         public string MaDN {  get; set; }
         public string MaDV { get; set; }
+        public string PheDuyet {  get; set; }
         public PhieuDangTuyenBUS(string MaPDT, DateTime ThoiGianBD, string ViTriUngTuyen, DateTime ThoiGianKetThuc,
-                                int SoLuongTuyen, string ThongTinYeuCau, string HinhThucTT, string TrangThaiTT, string MaDN, string MaDV)
+                                int SoLuongTuyen, string ThongTinYeuCau, string PheDuyet, string HinhThucTT, string TrangThaiTT, string MaDN, string MaDV)
         {
             this.MaPDT= MaPDT;
             this.ThoiGianBD = ThoiGianBD;
@@ -36,7 +37,7 @@ namespace PTTK.BUS
             this.MaDV = MaDV;
             this.SoLuongTuyen = SoLuongTuyen;
         }
-        public static int ThemPhieuDangTuyen (PhieuDangTuyenBUS pdt)
+        public int ThemPhieuDangTuyen (PhieuDangTuyenBUS pdt)
         {
             PhieuDangTuyenDBO pdtDBO = new PhieuDangTuyenDBO();
             
@@ -61,10 +62,124 @@ namespace PTTK.BUS
                 MessageBox.Show("Số lượng tuyển phải lớn hơn 0");
                 return -4;
             }
-            return 0;
+            if (pdt.ViTriUngTuyen.Length >20)
+            {
+                MessageBox.Show("Vị trí ứng tuyển không quá 20 chữ");
+                return -5;
+            }
+            pdt.MaPDT = TaoMaPDT();
+            if (pdt.MaPDT == null)
+            {
+                MessageBox.Show("Không thể thêm thành công");
+                return -6;
+            }
+            MessageBox.Show(pdt.MaPDT);
+            pdt.MaDV=DichVuBUS.LayMaDichVu(pdt.MaDV);
+            int result = pdtDBO.ThemPhieuDangTuyen(pdt);
+            return result;
+        }
+        public static string LayTenDoanhNghiep(string MaDN)
+        {
+            PhieuDangTuyenDBO pdt = new PhieuDangTuyenDBO();
+            
+            DataTable table = pdt.LayTenDN(MaDN);
+            if (table == null || table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+                return null;
+            }
+            else
+            {
+                DataRow row = table.Rows[0];
+                MessageBox.Show(row["TENCTY"].ToString());
+                return row["TENCTY"].ToString();
+            }
+            return null;
+        }
+        
+        public static string TaoMaPDT()
+        {
+            PhieuDangTuyenDBO pdt = new PhieuDangTuyenDBO();
+
+            DataTable table = pdt.LayMaPDTMoiNhat();
+            if (table == null || table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+                return null;
+            }
+            else
+            {
+                DataRow row = table.Rows[0];
+                string mapdt = row["MAPDT"].ToString();
+                MessageBox.Show($"{mapdt}: {mapdt}");
+                string numberPart = mapdt.Substring(3);
+                int number = int.Parse(numberPart);  
+                number += 1;
+                string newNumberStr = number.ToString("D3");
+                return "PDT"+newNumberStr;
+            }
+            return null;
+        }
+        
+        public static DataTable  LayToanBoPDT()
+        {
+            PhieuDangTuyenDBO pdtdbo = new PhieuDangTuyenDBO();
+            DataTable table = pdtdbo.LayToanBoPDT();
+            if (table == null || table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+                return null;
+            }
+            else
+            {
+                return table;
+            }
             
         }
-       
         
+        public static DataTable LayPDTChuaPheDuyet()
+        {
+            PhieuDangTuyenDBO pdtdbo = new PhieuDangTuyenDBO();
+            DataTable table = pdtdbo.LayPDTChuaPheDuyet();
+            if (table == null || table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+                return null;
+            }
+            else
+            {
+                return table;
+            }
+        }
+        public static DataTable LayToanBoPDTDN(string MaDN)
+        {
+            PhieuDangTuyenDBO pdtdbo = new PhieuDangTuyenDBO();
+            DataTable table = pdtdbo.LayToanBoPDTDN(MaDN);
+            if (table == null || table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+                return null;
+            }
+            else
+            {
+                return table;
+            }
+
+        }
+
+        public static DataTable LayPDTChuaPheDuyetDN(string MaDN)
+        {
+            PhieuDangTuyenDBO pdtdbo = new PhieuDangTuyenDBO();
+            DataTable table = pdtdbo.LayPDTChuaPheDuyetDN(MaDN);
+            if (table == null || table.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+                return null;
+            }
+            else
+            {
+                return table;
+            }
+        }
     }
 }

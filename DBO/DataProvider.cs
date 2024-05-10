@@ -6,9 +6,10 @@ namespace PTTK.DBO
 {
     internal class DataProvider
     {
-        /*TOAN*//* string connectionString = "Data Source=MSI;Initial Catalog=master;Integrated Security=True;Trust Server Certificate=True";
-*/
-        /*TheAnh*/
+        ///*TOAN*/ string connectionString = "Data Source=MSI;Initial Catalog=master;Integrated Security=True;Trust Server Certificate=True";
+        /*HOA*/
+/*        string connectionString = "Data Source=.;Initial Catalog=PTTK;Integrated Security=True";
+*/        /*TheAnh*/
         string connectionString = @"Data Source=LAPTOP-I679ENGR;Initial Catalog=PTTK;Integrated Security=True;TrustServerCertificate=True";
         /*DUY*//* string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=PTTK;Integrated Security=True";
 */
