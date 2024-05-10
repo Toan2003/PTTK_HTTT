@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PTTK.MH.ThanhToan;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,19 @@ namespace PTTK.MH.Dashboard
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MHThanhToan mhThanhToan = new MHThanhToan();
+            this.Hide();
+            mhThanhToan.ShowDialog();
+            this.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

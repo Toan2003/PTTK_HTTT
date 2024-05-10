@@ -5,45 +5,43 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PTTK.DBO
 {
-    internal class HoaDonDBO
+    public class PhieuThuDBO
     {
         DataProvider DataProvider { get; set; }
-        public HoaDonDBO()
+        public PhieuThuDBO()
         {
             DataProvider = new DataProvider();
         }
-        public DataTable LayHoaDonTheoMAHD(string MAHD)
+        public DataTable LayPhieuThuTheoMaPT(string MaPT)
         {
-            string query = "select * from HOADON where MAHD = '" + MAHD + "'";
+            string query = "select * from phieuthu where MaPT = '" + MaPT + "'";
             DataTable result = null;
             DataProvider.OpenConect();
             result = DataProvider.ExecuteQuery(query);
             DataProvider.CloseConect();
             return result;
         }
-        public int ThemHoaDon(HoaDonBUS hoadon)
+        public int ThemPhieuThu(PhieuThuBUS phieuthu)
         {
-            string MaHD = hoadon.MaHD;
-            string MaPhieuDK = hoadon.MaPhieuDK;
-            float TongTien = hoadon.TongTien;
-            string HinhThucTT = hoadon.HinhThucTT;
-            DateTime NgayLap = hoadon.NgayLap;
-            string MaNV = hoadon.MaNV;
-            string query = $"INSERT INTO HOADON (MAHD, MAPDT, TONGTIEN, HINHTHUCTT, NGAYLAP, MANV) VALUES ('{MaHD}', '{MaPhieuDK}', {TongTien}, N'{HinhThucTT}', '{NgayLap:yyyy-MM-dd HH:mm:ss}','{MaNV}')";
-            //MessageBox.Show(query);
+            string MaPT = phieuthu.MaPT;
+            string MaPhieuDK = phieuthu.MaPDT;
+            float TongTien = phieuthu.TongTien;
+            string PhuongAnTT = phieuthu.PhuongAnTT;
+            DateTime NgayLap = phieuthu.NgayLap;
+            string MaNV = phieuthu.MaNV;
+
+            string query = $"INSERT INTO PHIEUTHU (MAPT, MAPDT, TONGTIEN, PHUONGANTT, NGAYLAP, MANV) VALUES ('{MaPT}', '{MaPhieuDK}', {TongTien}, N'{PhuongAnTT}', '{NgayLap:yyyy-MM-dd HH:mm:ss}','{MaNV}')";
             DataProvider.OpenConect();
             int result = DataProvider.ExecuteNonQuery(query);
             DataProvider.CloseConect();
-
             return result;
         }
-        public DataTable LayHoaDonGanNhat()
+        public DataTable LayPhieuThuGanNhat()
         {
-            string query = "SELECT TOP 1 MaHD FROM HOADON ORDER BY MaHD DESC";
+            string query = "SELECT TOP 1 MAPT FROM PHIEUTHU ORDER BY MAPT DESC";
             DataTable result = null;
             DataProvider.OpenConect();
             result = DataProvider.ExecuteQuery(query);

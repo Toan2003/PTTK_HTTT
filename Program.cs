@@ -7,7 +7,9 @@ using PTTK.MH.DangKyUngTuyen;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-
+using PTTK.MH.ThanhToan;
+using PTTK.BUS;
+using PTTK.MH.Dashboard;
 namespace PTTK
 {
     internal static class Program
@@ -20,7 +22,7 @@ namespace PTTK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MHDKTVUngVien());
+            Application.Run(new DashboardNV());
         }
 
         public static class AppConfig

@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PTTK.MH.ThanhToan
+namespace PTTK.MH.LapPhieuCCTTDT
 {
-    public partial class ThanhToanTraGop : Form
+    public partial class MHLapPhieuCCTTDT : Form
     {
-        public ThanhToanTraGop()
+        public MHLapPhieuCCTTDT()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ThanhToanTraGop_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -25,24 +25,7 @@ namespace PTTK.BUS
             SoSanh = soSanh;
             MACN = maCN;
         }
-        static public bool KTQuiDinhTraGop(float TongTien)
-        {
-            QuiDinhDBO quiDinhDBO = new QuiDinhDBO();
-            QuiDinhBUS  QuiDinhTraGop = QuiDinhBUS.LayQuiDinhTheoMaQuiDinh("QD001");
-            float amountInRule;
-            if (float.TryParse(QuiDinhTraGop.SoSanh, out amountInRule))
-            {
-                if (TongTien >= amountInRule)
-                {
-                    return true;
-                }
-            }
-            //else
-            //{
-            //    MessageBox.Show("ERROR BUS: Invalid Amount in Rule");
-            //}
-            return false;   
-        }
+        
         static public QuiDinhBUS LayQuiDinhTheoMaQuiDinh(string MaQD)
         {
             if (string.IsNullOrEmpty(MaQD))
