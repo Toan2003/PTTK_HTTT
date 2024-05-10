@@ -32,7 +32,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.HinhThuc = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LapPhieuBtn = new System.Windows.Forms.Button();
             this.TTYeuCau = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.NgayKT = new System.Windows.Forms.DateTimePicker();
@@ -87,15 +87,15 @@
             this.label7.TabIndex = 40;
             this.label7.Text = "Hình thức ứng tuyển";
             // 
-            // button1
+            // LapPhieuBtn
             // 
-            this.button1.Location = new System.Drawing.Point(378, 434);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "SỬA";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LapPhieuBtn.Location = new System.Drawing.Point(378, 434);
+            this.LapPhieuBtn.Name = "LapPhieuBtn";
+            this.LapPhieuBtn.Size = new System.Drawing.Size(75, 23);
+            this.LapPhieuBtn.TabIndex = 39;
+            this.LapPhieuBtn.Text = "Lập phiếu";
+            this.LapPhieuBtn.UseVisualStyleBackColor = true;
+            this.LapPhieuBtn.Click += new System.EventHandler(this.LapPhieuBtn_Click);
             // 
             // TTYeuCau
             // 
@@ -197,7 +197,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.HinhThuc);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.LapPhieuBtn);
             this.Controls.Add(this.TTYeuCau);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.NgayKT);
@@ -222,7 +222,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox HinhThuc;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button LapPhieuBtn;
         private System.Windows.Forms.RichTextBox TTYeuCau;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker NgayKT;

@@ -23,7 +23,7 @@ namespace PTTK.MH.LapPhieuCCTTDT
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LapPhieuBtn_Click(object sender, EventArgs e)
         {
 
             DateTime ThoiGianBD = NgayBD.Value;
@@ -32,7 +32,7 @@ namespace PTTK.MH.LapPhieuCCTTDT
             int SoLuongTuyen = (int)SoLuong.Value;
             string ThongTinYeuCau = TTYeuCau.Text;
             string HinhThucTT = null;
-            string TrangThaiTT = null;
+            string TrangThaiTT = "Chưa Thanh Toán";
             string MaDN = PTTK.Program.AppConfig.doanhNghiepDangNhap.MaDN;
             string MaDV = HinhThuc.SelectedItem.ToString();
             string MaPDT = null;
@@ -43,7 +43,31 @@ namespace PTTK.MH.LapPhieuCCTTDT
             {
                 MessageBox.Show("Thêm thành công");
             }
-            else MessageBox.Show("Thêm không thành công");
+           
+            else if (result == -1)
+            {
+                MessageBox.Show("Thông tin yêu cầu lớn hơn 2000 chữ");
+            }
+
+            else if (result == -2)
+            {
+                MessageBox.Show("Thời gian bắt đầu hoặc thời gian kết thúc không được nhỏ hơn thời gian hiện tại");
+
+            }
+            else if (result == -3)
+            {
+                MessageBox.Show("Thời gian bắt đầu không được sau thời gian kết thúc");
+            }
+            else if (result == -4)
+            {
+                MessageBox.Show("Số lượng tuyển phải lớn hơn 0");            
+            }
+            else if (result == -5)
+            {
+                MessageBox.Show("Vị trí ứng tuyển không quá 20 chữ");               
+            }
+            else MessageBox.Show("Không thêm thành công");
+
         }
 
         private void label9_Click(object sender, EventArgs e)

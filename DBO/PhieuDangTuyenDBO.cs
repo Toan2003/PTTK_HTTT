@@ -31,7 +31,7 @@ namespace PTTK.DBO
             string MaDN = pdt.MaDN;
             string MaDV = pdt.MaDV;
             
-            string query = $"INSERT INTO PHIEUDANGTUYEN (MAPDT, THOIGIANBD, VITRIUNGTUYEN,SOLUONGUNGTUYEN, THONGTINYEUCAU, THOIGIANKT, PHEDUYET, HINHTHUCTT,TRANGTHAITT,MADN,MADV) VALUES ('{MaPDT}', '{ThoiGianBD.ToString("yyyy-MM-dd")}', N'{ViTriUngTuyen}', {SoLuongTuyen}, N'{ThongTinYeuCau}', '{ThoiGianKetThuc.ToString("yyyy-MM-dd")}', N'CHƯA PHÊ DUYỆT', NULL, NULL, '{MaDN}', '{MaDV}' )";
+            string query = $"INSERT INTO PHIEUDANGTUYEN (MAPDT, THOIGIANBD, VITRIUNGTUYEN,SOLUONGUNGTUYEN, THONGTINYEUCAU, THOIGIANKT, PHEDUYET, HINHTHUCTT,TRANGTHAITT,MADN,MADV) VALUES ('{MaPDT}', '{ThoiGianBD.ToString("yyyy-MM-dd")}', N'{ViTriUngTuyen}', {SoLuongTuyen}, N'{ThongTinYeuCau}', '{ThoiGianKetThuc.ToString("yyyy-MM-dd")}', N'CHƯA PHÊ DUYỆT', NULL, '{TrangThaiTT}', '{MaDN}', '{MaDV}' )";
             DataProvider.OpenConect();
             int result = DataProvider.ExecuteNonQuery(query);
             DataProvider.CloseConect();

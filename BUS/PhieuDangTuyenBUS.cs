@@ -37,6 +37,7 @@ namespace PTTK.BUS
             this.MaDN = MaDN;
             this.MaDV = MaDV;
             this.SoLuongTuyen = SoLuongTuyen;
+            this.PheDuyet = PheDuyet;
         }
         public PhieuDangTuyenBUS(string MaPDT, DateTime ThoiGianBD, string ViTriUngTuyen, DateTime ThoiGianKetThuc,
                                 int SoLuongTuyen, string ThongTinYeuCau, string HinhThucTT, string TrangThaiTT, string MaDN, string MaDV)
@@ -58,58 +59,40 @@ namespace PTTK.BUS
             
             if (pdt.ThongTinYeuCau.Length > 2000)
             {
-                MessageBox.Show("Thông tin yêu cầu lớn hơn 2000 chữ");
+                //MessageBox.Show("Thông tin yêu cầu lớn hơn 2000 chữ");
                 return -1;
             }
             DateTime cur = DateTime.Now;
             if (pdt.ThoiGianBD <cur || pdt.ThoiGianKetThuc<cur)
             {
-                MessageBox.Show("Thời gian bắt đầu hoặc thời gian kết thúc không được nhỏ hơn thời gian hiện tại");
+                //MessageBox.Show("Thời gian bắt đầu hoặc thời gian kết thúc không được nhỏ hơn thời gian hiện tại");
                 return -2;
             }
             if (pdt.ThoiGianBD > pdt.ThoiGianKetThuc)
             {
-                MessageBox.Show("Thời gian bắt đầu không được sau thời gian kết thúc");
+                //MessageBox.Show("Thời gian bắt đầu không được sau thời gian kết thúc");
                 return -3;
             }
             if(pdt.SoLuongTuyen == 0)
             {
-                MessageBox.Show("Số lượng tuyển phải lớn hơn 0");
+                //MessageBox.Show("Số lượng tuyển phải lớn hơn 0");
                 return -4;
             }
             if (pdt.ViTriUngTuyen.Length >20)
             {
-                MessageBox.Show("Vị trí ứng tuyển không quá 20 chữ");
+                //MessageBox.Show("Vị trí ứng tuyển không quá 20 chữ");
                 return -5;
             }
             pdt.MaPDT = TaoMaPDT();
             if (pdt.MaPDT == null)
             {
-                MessageBox.Show("Không thể thêm thành công");
+                //MessageBox.Show("Không thể thêm thành công");
                 return -6;
             }
-            MessageBox.Show(pdt.MaPDT);
+            //MessageBox.Show(pdt.MaPDT); 
             pdt.MaDV=DichVuBUS.LayMaDichVu(pdt.MaDV);
             int result = pdtDBO.ThemPhieuDangTuyen(pdt);
             return result;
-        }
-        public static string LayTenDoanhNghiep(string MaDN)
-        {
-            PhieuDangTuyenDBO pdt = new PhieuDangTuyenDBO();
-            
-            DataTable table = pdt.LayTenDN(MaDN);
-            if (table == null || table.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có kết quả trả về");
-                return null;
-            }
-            else
-            {
-                DataRow row = table.Rows[0];
-                MessageBox.Show(row["TENCTY"].ToString());
-                return row["TENCTY"].ToString();
-            }
-            return null;
         }
         
         public static string TaoMaPDT()
@@ -119,7 +102,7 @@ namespace PTTK.BUS
             DataTable table = pdt.LayMaPDTMoiNhat();
             if (table == null || table.Rows.Count == 0)
             {
-                MessageBox.Show("Không có kết quả trả về");
+                //MessageBox.Show("Không có kết quả trả về");
                 return null;
             }
             else
@@ -142,7 +125,7 @@ namespace PTTK.BUS
             DataTable table = pdtdbo.LayToanBoPDT();
             if (table == null || table.Rows.Count == 0)
             {
-                MessageBox.Show("Không có kết quả trả về");
+                //MessageBox.Show("Không có kết quả trả về");
                 return null;
             }
             else
@@ -158,7 +141,7 @@ namespace PTTK.BUS
             DataTable table = pdtdbo.LayPDTChuaPheDuyet();
             if (table == null || table.Rows.Count == 0)
             {
-                MessageBox.Show("Không có kết quả trả về");
+                //MessageBox.Show("Không có kết quả trả về");
                 return null;
             }
             else
@@ -172,7 +155,7 @@ namespace PTTK.BUS
             DataTable table = pdtdbo.LayToanBoPDTDN(MaDN);
             if (table == null || table.Rows.Count == 0)
             {
-                MessageBox.Show("Không có kết quả trả về");
+                //MessageBox.Show("Không có kết quả trả về");
                 return null;
             }
             else
@@ -188,7 +171,7 @@ namespace PTTK.BUS
             DataTable table = pdtdbo.LayPDTChuaPheDuyetDN(MaDN);
             if (table == null || table.Rows.Count == 0)
             {
-                MessageBox.Show("Không có kết quả trả về");
+                //MessageBox.Show("Không có kết quả trả về");
                 return null;
             }
             else

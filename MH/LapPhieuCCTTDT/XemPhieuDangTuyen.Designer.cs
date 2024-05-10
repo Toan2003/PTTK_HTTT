@@ -32,7 +32,6 @@
             this.DSPDT = new System.Windows.Forms.DataGridView();
             this.ToanBoBTN = new System.Windows.Forms.Button();
             this.ChuaPheDuyetBtn = new System.Windows.Forms.Button();
-            this.ChiTietBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DSPDT)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +59,7 @@
             // 
             // ToanBoBTN
             // 
-            this.ToanBoBTN.Location = new System.Drawing.Point(305, 44);
+            this.ToanBoBTN.Location = new System.Drawing.Point(514, 44);
             this.ToanBoBTN.Name = "ToanBoBTN";
             this.ToanBoBTN.Size = new System.Drawing.Size(132, 23);
             this.ToanBoBTN.TabIndex = 2;
@@ -78,21 +77,11 @@
             this.ChuaPheDuyetBtn.UseVisualStyleBackColor = true;
             this.ChuaPheDuyetBtn.Click += new System.EventHandler(this.ChuaPheDuyetBtn_Click);
             // 
-            // ChiTietBtn
-            // 
-            this.ChiTietBtn.Location = new System.Drawing.Point(373, 429);
-            this.ChiTietBtn.Name = "ChiTietBtn";
-            this.ChiTietBtn.Size = new System.Drawing.Size(75, 23);
-            this.ChiTietBtn.TabIndex = 4;
-            this.ChiTietBtn.Text = "Xem Chi Tiet";
-            this.ChiTietBtn.UseVisualStyleBackColor = true;
-            // 
             // XemPhieuDangTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 479);
-            this.Controls.Add(this.ChiTietBtn);
             this.Controls.Add(this.ChuaPheDuyetBtn);
             this.Controls.Add(this.ToanBoBTN);
             this.Controls.Add(this.DSPDT);
@@ -111,6 +100,5 @@
         private System.Windows.Forms.DataGridView DSPDT;
         private System.Windows.Forms.Button ToanBoBTN;
         private System.Windows.Forms.Button ChuaPheDuyetBtn;
-        private System.Windows.Forms.Button ChiTietBtn;
     }
 }

@@ -30,14 +30,22 @@ namespace PTTK.MH.LapPhieuCCTTDT
         {
             string MaDN = PTTK.Program.AppConfig.doanhNghiepDangNhap.MaDN;
             DataTable result = PhieuDangTuyenBUS.LayToanBoPDTDN(MaDN);
-            DSPDT.DataSource = result;
+            if (result == null)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+            }    
+            else DSPDT.DataSource = result;
         }
 
         private void ChuaPheDuyetBtn_Click(object sender, EventArgs e)
         {
             string MaDN = PTTK.Program.AppConfig.doanhNghiepDangNhap.MaDN;
             DataTable result = PhieuDangTuyenBUS.LayPDTChuaPheDuyetDN(MaDN);
-            DSPDT.DataSource = result;
+            if (result == null)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+            }
+            else DSPDT.DataSource = result;
         }
     }
 }

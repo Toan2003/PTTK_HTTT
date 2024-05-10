@@ -28,7 +28,8 @@ namespace PTTK
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
             AppConfig.UsernameID = "NV001";
-            Application.Run(new DashboardNV());
+            
+            Application.Run(new Login());
         }
 
         public static class AppConfig

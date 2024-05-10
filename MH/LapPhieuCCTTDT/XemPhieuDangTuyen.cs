@@ -21,13 +21,21 @@ namespace PTTK.MH.LapPhieuCCTTDT
         private void ToanBoBTN_Click(object sender, EventArgs e)
         {
             DataTable result = PhieuDangTuyenBUS.LayToanBoPDT();
-            DSPDT.DataSource = result;
+            if (result == null)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+            }
+            else DSPDT.DataSource = result;
         }
 
         private void ChuaPheDuyetBtn_Click(object sender, EventArgs e)
         {
             DataTable result = PhieuDangTuyenBUS.LayPDTChuaPheDuyet();
-            DSPDT.DataSource = result;
+            if (result == null)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+            }
+            else DSPDT.DataSource = result;
         }
     }
 }

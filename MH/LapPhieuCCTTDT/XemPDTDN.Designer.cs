@@ -28,22 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ChiTietBtn = new System.Windows.Forms.Button();
             this.ChuaPheDuyetBtn = new System.Windows.Forms.Button();
             this.ToanBoBTN = new System.Windows.Forms.Button();
             this.DSPDT = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DSPDT)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ChiTietBtn
-            // 
-            this.ChiTietBtn.Location = new System.Drawing.Point(368, 424);
-            this.ChiTietBtn.Name = "ChiTietBtn";
-            this.ChiTietBtn.Size = new System.Drawing.Size(75, 23);
-            this.ChiTietBtn.TabIndex = 9;
-            this.ChiTietBtn.Text = "Xem Chi Tiet";
-            this.ChiTietBtn.UseVisualStyleBackColor = true;
             // 
             // ChuaPheDuyetBtn
             // 
@@ -93,7 +83,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ChiTietBtn);
             this.Controls.Add(this.ChuaPheDuyetBtn);
             this.Controls.Add(this.ToanBoBTN);
             this.Controls.Add(this.DSPDT);
@@ -107,8 +96,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button ChiTietBtn;
         private System.Windows.Forms.Button ChuaPheDuyetBtn;
         private System.Windows.Forms.Button ToanBoBTN;
         private System.Windows.Forms.DataGridView DSPDT;
