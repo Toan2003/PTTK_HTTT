@@ -45,7 +45,8 @@ namespace PTTK.MH
             else if (role == "Business")
             {
                 this.Hide();
-                DashboardDN dashboardForm = new DashboardDN(this, new DoanhNghiepBUS(username));
+                AppConfig.doanhNghiepDangNhap = new DoanhNghiepBUS(username);
+                DashboardDN dashboardForm = new DashboardDN(this);
                 dashboardForm.Show();
                 Clear_Textboxes();
             }

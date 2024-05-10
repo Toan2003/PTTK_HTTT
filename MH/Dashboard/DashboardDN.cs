@@ -1,18 +1,15 @@
-﻿using PTTK.BUS;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace PTTK.MH.Dashboard
 {
     public partial class DashboardDN : Form
     {
-        private DoanhNghiepBUS doanhNghiepHienTai = new DoanhNghiepBUS();
         private Form parentForm;
-        public DashboardDN(Form parent, DoanhNghiepBUS doanhNghiepDangNhap)
+        public DashboardDN(Form parent)
         {
             InitializeComponent();
-            doanhNghiepHienTai = doanhNghiepDangNhap;
-            lbl_TenDoanhNghiep.Text = doanhNghiepHienTai.TenCongTy;
+            lbl_TenDoanhNghiep.Text = PTTK.Program.AppConfig.doanhNghiepDangNhap.TenCongTy;
             parentForm = parent;
             this.FormClosing += DashboardDN_FormClosing;
         }

@@ -1,4 +1,5 @@
-﻿using PTTK.MH;
+﻿using PTTK.BUS;
+using PTTK.MH;
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -28,6 +29,7 @@ namespace PTTK
             // Chuỗi kết nối mặc định
             //public static string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=QLHS;Integrated Security=True";
             // Tên người dùng hiện tại
+            public static DoanhNghiepBUS doanhNghiepDangNhap;
             public static string UsernameID { get; set; }
 
             public static string HashMatKhau(string matKhau)
