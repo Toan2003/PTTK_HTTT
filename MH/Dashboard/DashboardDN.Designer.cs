@@ -39,7 +39,7 @@
             // 
             this.lbl_TenCongTy.AutoSize = true;
             this.lbl_TenCongTy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TenCongTy.Location = new System.Drawing.Point(12, 13);
+            this.lbl_TenCongTy.Location = new System.Drawing.Point(55, 28);
             this.lbl_TenCongTy.Name = "lbl_TenCongTy";
             this.lbl_TenCongTy.Size = new System.Drawing.Size(134, 22);
             this.lbl_TenCongTy.TabIndex = 0;
@@ -64,7 +64,7 @@
             this.btn_DangXuat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btn_DangXuat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DangXuat.Location = new System.Drawing.Point(670, 406);
+            this.btn_DangXuat.Location = new System.Drawing.Point(660, 410);
             this.btn_DangXuat.Name = "btn_DangXuat";
             this.btn_DangXuat.Size = new System.Drawing.Size(129, 37);
             this.btn_DangXuat.TabIndex = 2;
@@ -81,13 +81,14 @@
             this.btn_TaoPhieuDangTuyen.TabIndex = 3;
             this.btn_TaoPhieuDangTuyen.Text = "Tạo phiếu đăng tuyển";
             this.btn_TaoPhieuDangTuyen.UseVisualStyleBackColor = true;
+            this.btn_TaoPhieuDangTuyen.Click += new System.EventHandler(this.btn_TaoPhieuDangTuyen_Click);
             // 
             // lbl_TenDoanhNghiep
             // 
             this.lbl_TenDoanhNghiep.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbl_TenDoanhNghiep.AutoSize = true;
             this.lbl_TenDoanhNghiep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TenDoanhNghiep.Location = new System.Drawing.Point(175, 15);
+            this.lbl_TenDoanhNghiep.Location = new System.Drawing.Point(195, 30);
             this.lbl_TenDoanhNghiep.MaximumSize = new System.Drawing.Size(170, 0);
             this.lbl_TenDoanhNghiep.Name = "lbl_TenDoanhNghiep";
             this.lbl_TenDoanhNghiep.Size = new System.Drawing.Size(44, 20);

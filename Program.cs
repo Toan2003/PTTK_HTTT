@@ -18,7 +18,7 @@ namespace PTTK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MHDKTVUngVien());
+            Application.Run(new Login());
         }
 
         public static class AppConfig

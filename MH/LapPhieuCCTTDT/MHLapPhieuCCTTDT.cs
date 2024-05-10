@@ -1,39 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PTTK.BUS;
+using System;
 using System.Windows.Forms;
-using PTTK.BUS;
 
 namespace PTTK.MH.LapPhieuCCTTDT
 {
     public partial class MHLapPhieuCCTTDT : Form
     {
-        public MHLapPhieuCCTTDT()
+        private Form parentForm;
+        public MHLapPhieuCCTTDT(Form parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
             HienThi();
+            this.FormClosing += MHLapPhieuCCTTDT_FormClosing;
+        }
+
+        private void MHLapPhieuCCTTDT_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                parentForm.Show();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             DateTime ThoiGianBD = NgayBD.Value;
             string ViTriUngTuyenText = ViTriUngTuyen.Text;
             DateTime ThoiGianKetThuc = NgayKT.Value;
-            int SoLuongTuyen = (int) SoLuong.Value;
+            int SoLuongTuyen = (int)SoLuong.Value;
             string ThongTinYeuCau = TTYeuCau.Text;
             string HinhThucTT = null;
-            string TrangThaiTT =null;
-            string MaDN = "DN001";
+            string TrangThaiTT = null;
+            string MaDN = PTTK.Program.AppConfig.doanhNghiepDangNhap.MaDN;
             string MaDV = HinhThuc.SelectedItem.ToString();
             string MaPDT = null;
             PhieuDangTuyenBUS pdtbus = new PhieuDangTuyenBUS(MaPDT, ThoiGianBD, ViTriUngTuyenText, ThoiGianKetThuc,
-                                SoLuongTuyen, ThongTinYeuCau,null, HinhThucTT, TrangThaiTT, MaDN, MaDV);
+                                SoLuongTuyen, ThongTinYeuCau, null, HinhThucTT, TrangThaiTT, MaDN, MaDV);
             int result = pdtbus.ThemPhieuDangTuyen(pdtbus);
             if (result > 0)
             {
@@ -49,9 +53,10 @@ namespace PTTK.MH.LapPhieuCCTTDT
 
         private void HienThi()
         {
-            string MaDN = "DN001";
-            string maDN = PhieuDangTuyenBUS.LayTenDoanhNghiep(MaDN);
-            tenCtyLabel.Text = maDN;
+            /*            string MaDN = "DN001";
+            */
+            string TenDN = PTTK.Program.AppConfig.doanhNghiepDangNhap.TenCongTy;
+            tenCtyLabel.Text = TenDN;
 
         }
     }
