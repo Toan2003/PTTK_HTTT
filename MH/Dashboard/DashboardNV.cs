@@ -1,4 +1,5 @@
-﻿using PTTK.MH.ThanhToan;
+﻿using PTTK.MH.LapPhieuCCTTDT;
+using PTTK.MH.ThanhToan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,10 @@ namespace PTTK.MH.Dashboard
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            XemPhieuDangTuyen mhXemPhieuDangTuyen = new XemPhieuDangTuyen();
+            this.Hide();
+            mhXemPhieuDangTuyen.ShowDialog();
+            this.Show();
         }
 
     }

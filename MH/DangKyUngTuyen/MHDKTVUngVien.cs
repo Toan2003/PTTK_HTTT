@@ -1,24 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PTTK.BUS;
+using PTTK.MH.Dashboard;
+using System;
 using System.Windows.Forms;
-using PTTK.BUS;
 
 namespace PTTK.MH.DangKyUngTuyen
 {
     public partial class MHDKTVUngVien : Form
     {
         private UngVienBUS ungVienBUS;
+        private Form parent;
 
-        public MHDKTVUngVien()
+        public MHDKTVUngVien(Form parent)
         {
             InitializeComponent();
-            ungVienBUS = new UngVienBUS();
+            this.FormClosing += MHDKTVUngVien_FormClosing;
+            this.parent = parent;
+        }
+
+        private void MHDKTVUngVien_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                parent.Close();
+            }
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)
@@ -31,18 +35,22 @@ namespace PTTK.MH.DangKyUngTuyen
             string matKhau = txtMatKhau.Text;
             string xacNhanMatKhau = txtXacNhanMatKhau.Text;
 
+            ungVienBUS = new UngVienBUS(hoTen, email, diaChi, soDienThoai, matKhau);
+
             // Kiểm tra thông tin
             if (!ungVienBUS.KiemTraThongTin(hoTen, email, diaChi, soDienThoai, matKhau, xacNhanMatKhau))
                 return;
 
+
+
             // Thêm thành viên
-            int kq = ungVienBUS.ThemUngVien(hoTen, email, diaChi, soDienThoai, matKhau);
-            if ( kq == 1)
+            int kq = ungVienBUS.ThemUngVien(ungVienBUS);
+            if (kq == 1)
             {
                 MessageBox.Show("Đăng ký thành viên thành công!");
-                // Thực hiện đăng nhập
-                ungVienBUS.DangNhap(soDienThoai, matKhau);
                 this.Close(); // Đóng form đăng ký sau khi đăng nhập thành công
+                DashboardUV dashboardForm = new DashboardUV();
+                dashboardForm.Show();
             }
             else if (kq == 100)
             {
@@ -57,10 +65,10 @@ namespace PTTK.MH.DangKyUngTuyen
                 }
                 else
                 {
-                    // Thoát chức năng đăng ký
                     this.Close();
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Đăng ký không thành công, vui lòng thử lại sau !");
             }

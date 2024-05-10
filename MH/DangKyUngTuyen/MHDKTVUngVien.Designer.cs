@@ -82,6 +82,7 @@
             this.txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
             this.txtXacNhanMatKhau.Size = new System.Drawing.Size(393, 22);
             this.txtXacNhanMatKhau.TabIndex = 26;
+            this.txtXacNhanMatKhau.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -99,6 +100,7 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(393, 22);
             this.txtMatKhau.TabIndex = 24;
+            this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -199,6 +201,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtHoTen);
             this.Name = "MHDKTVUngVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MHDKTVUngVien";
             this.ResumeLayout(false);
             this.PerformLayout();

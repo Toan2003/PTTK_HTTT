@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +64,11 @@
     <Compile Include="BUS\DichVuBUS.cs" />
     <Compile Include="BUS\DoanhNghiepBUS.cs" />
     <Compile Include="BUS\LichTraGopBUS.cs" />
+    <Compile Include="BUS\DoanhNghiepBUS.cs" />
+    <Compile Include="DataProvider\DataProvider.cs" />
+    <Compile Include="DBO\DoanhNghiepDBO.cs" />
+    <Compile Include="BUS\LoginBUS.cs" />
+    <Compile Include="BUS\DichVuBUS.cs" />
     <Compile Include="BUS\PhieuDangTuyenBUS.cs" />
     <Compile Include="BUS\HoaDonBUS.cs" />
     <Compile Include="BUS\PhieuThuBUS.cs" />
@@ -57,7 +77,9 @@
     <Compile Include="DBO\DataProvider.cs" />
     <Compile Include="DBO\DichVuDBO.cs" />
     <Compile Include="DBO\DoanhNghiepDBO.cs" />
+    <Compile Include="DBO\DichVuDBO.cs" />
     <Compile Include="DBO\HoaDonDBO.cs" />
+    <Compile Include="DBO\LoginDBO.cs" />
     <Compile Include="DBO\LichTraGopDBO.cs" />
     <Compile Include="DBO\PhieuDangTuyenDBO.cs" />
     <Compile Include="DBO\PhieuThuDBO.cs" />
@@ -106,12 +128,37 @@
     <Compile Include="MH\Dashboard\DashboardUV.Designer.cs">
       <DependentUpon>DashboardUV.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\DkiDN_UV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\DkiDN_UV.Designer.cs">
+      <DependentUpon>DkiDN_UV.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.Designer.cs">
       <DependentUpon>MHLapPhieuCCTTDT.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPDTDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPDTDN.Designer.cs">
+      <DependentUpon>XemPDTDN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPhieuDangTuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\LapPhieuCCTTDT\XemPhieuDangTuyen.Designer.cs">
+      <DependentUpon>XemPhieuDangTuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    
     <Compile Include="MH\ThanhToan\MHThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,14 +174,30 @@
     <Compile Include="MH\ThanhToan\MHThanhToanTraGop.cs">
       <SubType>Form</SubType>
     </Compile>
+	  
+	<Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.cs">
+		<SubType>Form</SubType>
+	</Compile>
+	<Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.Designer.cs">
+		<DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
+	</Compile>
+	<Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.cs">
+		<SubType>Form</SubType>
+	</Compile>
     <Compile Include="MH\ThanhToan\MHThanhToanTraGop.Designer.cs">
       <DependentUpon>MHThanhToanTraGop.cs</DependentUpon>
     </Compile>
     <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.Designer.cs">
+      <DependentUpon>SuaPhieuDangKyDN.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.Designer.cs">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong1.cs">
       <SubType>Form</SubType>
@@ -143,10 +206,19 @@
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.Designer.cs">
+      <DependentUpon>ThemDoanhNghiepMoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MH\DangKyUngTuyen\MHDKTVUngVien.resx">
       <DependentUpon>MHDKTVUngVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\DkiDN_UV.resx">
+      <DependentUpon>DkiDN_UV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\Dashboard\DashboardDN.resx">
+      <DependentUpon>DashboardDN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\Dashboard\DashboardNV.resx">
       <DependentUpon>DashboardNV.cs</DependentUpon>
@@ -154,20 +226,39 @@
     <EmbeddedResource Include="MH\LapPhieuCCTTDT\MHLapPhieuCCTTDT.resx">
       <DependentUpon>MHLapPhieuCCTTDT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MH\ThanhToan\MHThanhToan.resx">
-      <DependentUpon>MHThanhToan.cs</DependentUpon>
+    <EmbeddedResource Include="MH\LapPhieuCCTTDT\XemPDTDN.resx">
+      <DependentUpon>XemPDTDN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MH\LapPhieuCCTTDT\XemPhieuDangTuyen.resx">
+      <DependentUpon>XemPhieuDangTuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+      <EmbeddedResource Include="MH\ThanhToan\MHThanhToan.resx">
+		  <DependentUpon>MHThanhToan.cs</DependentUpon>
+	  </EmbeddedResource>
     <EmbeddedResource Include="MH\ThanhToan\MHThanhToanTraThang.resx">
       <DependentUpon>MHThanhToanTraThang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MH\ThanhToan\MHThanhToanTraGop.resx">
-      <DependentUpon>MHThanhToanTraGop.cs</DependentUpon>
-    </EmbeddedResource>
+	</EmbeddedResource>
+	<EmbeddedResource Include="MH\ThanhToan\MHThanhToanTraGop.resx">
+		<DependentUpon>MHThanhToanTraGop.cs</DependentUpon>
+	</EmbeddedResource>
+	<EmbeddedResource Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.resx">
+		<DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
+	</EmbeddedResource>
+    
     <EmbeddedResource Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.resx">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.resx">
+      <DependentUpon>SuaPhieuDangKyDN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong1.resx">
       <DependentUpon>LapDSGiaHanHopDong1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\ThemDNThanhVien\ThemDoanhNghiepMoi.resx">
+      <DependentUpon>ThemDoanhNghiepMoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -192,6 +283,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+	  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

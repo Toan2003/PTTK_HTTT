@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PTTK.Program;
 
 namespace PTTK.MH.ThanhToan
 {
     public partial class MHThanhToan : Form
     {
-        string MaNV = "NV001";
+        string MaNV = AppConfig.UsernameID;
         PhieuDangTuyenBUS phieu;
         public MHThanhToan()
         {
@@ -43,7 +44,7 @@ namespace PTTK.MH.ThanhToan
                 this.TinhTrangTxtBox.Text = phieu.TrangThaiTT;
                 this.HinhThucThanhToanTxtBox.Text = phieu.HinhThucTT;
                 this.TenDichVuTxtBox.Text = dichvu.TenDichVu;
-                this.TenDoanhNghiepTxtBox.Text = doanhghiep.TenCTY;
+                this.TenDoanhNghiepTxtBox.Text = doanhghiep.TenCongTy;
                 if (phieu.TrangThaiTT == "Chưa Thanh Toán")
                 {
                     ThanhToanThangBtn.Visible = true;

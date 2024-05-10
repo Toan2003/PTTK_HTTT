@@ -19,6 +19,27 @@ namespace PTTK.BUS
             this.TenDichVu = TenDichVu;
             this.GiaTien = GiaTien;
         }
+
+        public static string LayMaDichVu(string tenDV)
+        {
+            DichVuDBO dv = new DichVuDBO();
+            DataTable dataTable = new DataTable();
+            dataTable = dv.LayMaDV(tenDV);            
+
+            if (dataTable == null || dataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có kết quả trả về");
+                return null;
+            }
+            else
+            {
+                DataRow row = dataTable.Rows[0];
+                MessageBox.Show(row["MADV"].ToString());
+                return row["MADV"].ToString();
+            }
+            return null;
+
+        }
         public static DichVuBUS TimDichVuTheoMaDV(string MaDV)
         {
             if (String.IsNullOrEmpty(MaDV) || MaDV.Length != 5)
@@ -42,6 +63,5 @@ namespace PTTK.BUS
                 return result;
             }
         }
-
     }
 }

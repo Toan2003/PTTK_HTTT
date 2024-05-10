@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PTTK.BUS;
+using PTTK.MH;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +12,8 @@ using System.Text.RegularExpressions;
 using PTTK.MH.ThanhToan;
 using PTTK.BUS;
 using PTTK.MH.Dashboard;
+using System.Windows.Forms;
+
 namespace PTTK
 {
     internal static class Program
@@ -22,18 +26,22 @@ namespace PTTK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DashboardNV());
+            Application.Run(new Login());
+            //AppConfig.UsernameID = "NV001";
+            //Application.Run(new DashboardNV());
         }
 
         public static class AppConfig
         {
-            // Chuỗi kết nối mặc định
-            public static string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=QLHS;Integrated Security=True";
-            // Tên người dùng hiện tại
-            public static string CurrentUsername { get; set; }
+            // Biểu thức chính quy để kiểm tra số điện thoại Việt Nam
+            private static readonly string phoneNumberPattern = @"^(0|\+84)(3[2-9]|5[689]|7[06-9]|8[1-689]|9[0-46-9])[0-9]{7}$";
 
-            // Mật khẩu của người dùng hiện tại
-            public static string CurrentPassword { get; set; }
+            // Chuỗi kết nối mặc định
+            //public static string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=QLHS;Integrated Security=True";
+            // Tên người dùng hiện tại
+            public static DoanhNghiepBUS doanhNghiepDangNhap;
+            public static string UsernameID { get; set; }
+
             public static string HashMatKhau(string matKhau)
             {
                 using (MD5 md5Hash = MD5.Create())
@@ -66,6 +74,44 @@ namespace PTTK
                 // Kiểm tra xem địa chỉ email có khớp với biểu thức chính quy không
                 return regex.IsMatch(email);
             }
+
+            public static bool IsValidPhoneNumber(string phoneNumber)
+            {
+                if (string.IsNullOrEmpty(phoneNumber))
+                    return false;
+
+                // Remove spaces and hyphens for more lenient validation
+                phoneNumber = phoneNumber.Replace(" ", "").Replace("-", "");
+
+                // Create a Regex based on the specified pattern
+                Regex regex = new Regex(phoneNumberPattern);
+
+                // Check if the phone number matches the pattern
+                return regex.IsMatch(phoneNumber);
+            }
+
+            public static bool IsValidTaxIdentificationNumber(string taxCode)
+            {
+                if (string.IsNullOrWhiteSpace(taxCode))
+                    return false;
+
+                // Normalize by removing spaces
+                taxCode = taxCode.Replace(" ", "");
+
+                // Check if the tax code is either 10 or 13 digits long
+                if (taxCode.Length != 10 && taxCode.Length != 13)
+                    return false;
+
+                // Check if all characters are digits
+                foreach (char c in taxCode)
+                {
+                    if (!char.IsDigit(c))
+                        return false;
+                }
+
+                return true;
+            }
+
         }
     }
 }

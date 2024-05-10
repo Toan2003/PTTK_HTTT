@@ -23,5 +23,14 @@ namespace PTTK.DBO
             DataProvider.CloseConect();
             return result;
         }
+        public DataTable LayMaDV(string tendv)
+        {
+            string query = $"SELECT MADV FROM DICHVU WHERE TENDICHVU LIKE N'%{tendv}%';";
+
+            DataProvider.OpenConect();
+            DataTable result = DataProvider.ExecuteQuery(query);
+            DataProvider.CloseConect();
+            return result;
+        }
     }
 }
