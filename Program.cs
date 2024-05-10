@@ -26,9 +26,9 @@ namespace PTTK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-            //AppConfig.UsernameID = "NV001";
-            //Application.Run(new DashboardNV());
+            //Application.Run(new Login());
+            AppConfig.UsernameID = "NV001";
+            Application.Run(new DashboardNV());
         }
 
         public static class AppConfig

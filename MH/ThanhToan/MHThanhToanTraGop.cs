@@ -144,22 +144,25 @@ namespace PTTK.MH.ThanhToan
             //MessageBox.Show(Lich.Rows.Count.ToString());
 
             //Thêm hóa đơn khi thanh toán cuối cùng
-            if (PhieuDangTuyenBUS.KiemTraHoanTatThanhToan(MaPDTTxtBox.Text))
+            if (!isFirstTime)
             {
-                HoaDonBUS hoadon = new HoaDonBUS(HoaDonBUS.GenerateMaHD(), MaPDTTxtBox.Text, float.Parse(TongTienTxtBox.Text), "Trả Góp", ngaythu, MaNV);
-                int isSuccesfullHoaDon = HoaDonBUS.ThemHoaDon(hoadon);
-                if (isSuccesfullHoaDon == 1)
+                if (PhieuDangTuyenBUS.KiemTraHoanTatThanhToan(MaPDTTxtBox.Text))
                 {
-                    
-                    int isCapNhatTrangThaiTT = phieu.CapNhatTrangThaiTT("Đã Thanh Toán");
-                    if (isCapNhatTrangThaiTT <= 0)
+                    HoaDonBUS hoadon = new HoaDonBUS(HoaDonBUS.GenerateMaHD(), MaPDTTxtBox.Text, float.Parse(TongTienTxtBox.Text), "Trả Góp", ngaythu, MaNV);
+                    int isSuccesfullHoaDon = HoaDonBUS.ThemHoaDon(hoadon);
+                    if (isSuccesfullHoaDon == 1)
                     {
-                        MessageBox.Show("Không cập nhật trạng thái thành công: " + isCapNhatTrangThaiTT.ToString());
+
+                        int isCapNhatTrangThaiTT = phieu.CapNhatTrangThaiTT("Đã Thanh Toán");
+                        if (isCapNhatTrangThaiTT <= 0)
+                        {
+                            MessageBox.Show("Không cập nhật trạng thái thành công: " + isCapNhatTrangThaiTT.ToString());
+                        }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Thanh toán không thành công: ");
+                    else
+                    {
+                        MessageBox.Show("Thanh toán không thành công: ");
+                    }
                 }
             }
             MessageBox.Show("Thanh toán thành công");
