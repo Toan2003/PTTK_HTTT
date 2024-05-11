@@ -27,7 +27,7 @@ namespace PTTK.MH
         private void btnDN_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ThemDoanhNghiepMoi f = new ThemDoanhNghiepMoi(this);
+            ThemDoanhNghiepMoi f = new ThemDoanhNghiepMoi(this.parent);
             f.ShowDialog();
         }
 

@@ -58,7 +58,7 @@ namespace PTTK.MH
             }
             else
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thông tin đăng nhập sai hoặc tài khoản chưa được duyệt", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

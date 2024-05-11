@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace PTTK.DBO
 {
@@ -38,19 +31,19 @@ namespace PTTK.DBO
                     // Xử lý trường hợp không nhận được kết quả hợp lệ từ ExecuteScalar
                     return false;
                 }
-            } 
+            }
             catch
             {
                 return false;
             }
-            
+
         }
 
         public bool CheckBusinessLogin(string username, string password)
         {
             try
             {
-                string query = $"SELECT COUNT(*) FROM DOANHNGHIEP WHERE USERNAME = '{username}' AND PASSWORD = '{password}'";
+                string query = $"SELECT COUNT(*) FROM DOANHNGHIEP WHERE USERNAME = '{username}' AND PASSWORD = '{password}' AND TRANGTHAI = N'ĐÃ DUYỆT'";
                 dataProvider.OpenConect();
                 object result = dataProvider.ExecuteScalar(query);
                 dataProvider.CloseConect();
@@ -70,7 +63,7 @@ namespace PTTK.DBO
             {
                 return false;
             }
-            
+
         }
 
         public bool CheckEmployeeLogin(string employeeId, string password)
@@ -97,7 +90,7 @@ namespace PTTK.DBO
             {
                 return false;
             }
-            
+
         }
 
         public DataTable LayMaUV(string phoneNumber, string password)
@@ -110,9 +103,9 @@ namespace PTTK.DBO
             return result;
         }
 
-        public DataTable LayMaDN(string username, string password)
+        public DataTable LayMaDN(string username)
         {
-            string query = $"SELECT MADN FROM DOANHNGHIEP WHERE USERNAME = '{username}' AND PASSWORD = '{password}'";
+            string query = $"SELECT MADN FROM DOANHNGHIEP WHERE USERNAME = '{username}''";
 
             dataProvider.OpenConect();
             DataTable result = dataProvider.ExecuteQuery(query);

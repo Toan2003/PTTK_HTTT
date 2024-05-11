@@ -93,9 +93,13 @@ namespace PTTK.MH.ThemDNThanhVien
             {
                 lbl_CheckValidMST.Text = "Mã số thuế đã tồn tại";
             }
-            else
+            else if (DoanhNghiepBUS.Instance.IsValidTaxIdentificationNumber(maSoThue))
             {
                 lbl_CheckValidMST.Text = "Mã số thuế hợp lệ";
+            }
+            else
+            {
+                lbl_CheckValidMST.Text = "Mã số thuế không hợp lệ";
             }
         }
 

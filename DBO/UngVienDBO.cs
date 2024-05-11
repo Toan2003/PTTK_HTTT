@@ -1,14 +1,6 @@
-﻿using PTTK.DBO;
+﻿using PTTK.BUS;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using PTTK.BUS;
-using static PTTK.Program;
 
 namespace PTTK.DBO
 {
@@ -26,7 +18,7 @@ namespace PTTK.DBO
             string query = "SELECT COUNT(*) FROM UNGVIEN WHERE SODIENTHOAI = '" + soDienThoai + "'";
 
             DataProvider.OpenConect();
-            
+
             int result = (int)DataProvider.ExecuteScalar(query);
             DataProvider.CloseConect();
 
@@ -35,7 +27,7 @@ namespace PTTK.DBO
                 return true;
             }
 
-            
+
             return false;
         }
 
@@ -65,7 +57,7 @@ namespace PTTK.DBO
             string matKhau = ungVien.MatKhau;
 
             string query = $"INSERT INTO UNGVIEN (MAUNGVIEN, HOTEN, SODIENTHOAI, DIACHI, EMAIL, MATKHAU) " +
-                           $"VALUES ('{maUngVien}', '{hoTen}', '{soDienThoai}', '{diaChi}', '{email}', '{matKhau}')";
+                           $"VALUES ('{maUngVien}', N'{hoTen}', '{soDienThoai}', N'{diaChi}', '{email}', '{matKhau}')";
 
             DataProvider.OpenConect();
             int result = DataProvider.ExecuteNonQuery(query);
@@ -74,12 +66,13 @@ namespace PTTK.DBO
             if (result > 0)
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
-           
-            
+
+
         }
     }
 }

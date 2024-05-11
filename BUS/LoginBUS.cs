@@ -18,7 +18,7 @@ namespace PTTK.BUS
         public string Login(string username, string password)
         {
             // Kiểm tra đăng nhập của ứng viên
-            if (loginDBO.CheckCandidateLogin(username, password))
+            if (loginDBO.CheckCandidateLogin(username, HashMatKhau(password)))
             {
                 password = this.HashMatKhau(password);
                 DataTable table = loginDBO.LayMaUV(username, password);
@@ -29,13 +29,8 @@ namespace PTTK.BUS
             }
 
             // Kiểm tra đăng nhập của doanh nghiệp
-            if (loginDBO.CheckBusinessLogin(username, password))
+            if (loginDBO.CheckBusinessLogin(username, this.HashMatKhau(password)))
             {
-                password = this.HashMatKhau(password);
-                DataTable table = loginDBO.LayMaDN(username, password);
-                DataRow row = table.Rows[0];
-                AppConfig.UsernameID = row["MADN"].ToString();
-
                 return "Business";
             }
 
