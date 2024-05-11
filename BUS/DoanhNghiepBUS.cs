@@ -1,10 +1,9 @@
 ﻿using PTTK.DBO;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace PTTK.BUS
 {
@@ -93,7 +92,7 @@ namespace PTTK.BUS
             this.password = password;
             this.trangThai = trangThai;
         }
-        public DoanhNghiepBUS(String maDN,String tenCongTy, String emailLienHe,
+        public DoanhNghiepBUS(String maDN, String tenCongTy, String emailLienHe,
                String mST, String nguoiDaiDien, String sDT, String diaChi, String username, String password, String trangThai)
         {
             this.maDN = maDN;
@@ -195,6 +194,77 @@ namespace PTTK.BUS
             this.Username = result.Rows[0]["USERNAME"].ToString();
         }
 
+        public string HashMatKhau(string matKhau)
+        {
+            using (MD5 md5Hash = MD5.Create())
+            {
+                // Chuyển đổi mật khẩu thành mảng byte
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(matKhau));
+
+                // Tạo một StringBuilder để lưu trữ các byte đã được chuyển đổi thành chuỗi hex
+                StringBuilder stringBuilder = new StringBuilder();
+
+                // Lặp qua mỗi byte của mảng đã chuyển đổi và chuyển đổi nó thành một chuỗi hex
+                for (int i = 0; i < data.Length; i++)
+                {
+                    stringBuilder.Append(data[i].ToString("x2"));
+                }
+
+                // Trả về chuỗi hex đã được tạo
+                return stringBuilder.ToString();
+            }
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            // Biểu thức chính quy để kiểm tra địa chỉ email
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            // Tạo một đối tượng Regex từ biểu thức chính quy
+            Regex regex = new Regex(pattern);
+
+            // Kiểm tra xem địa chỉ email có khớp với biểu thức chính quy không
+            return regex.IsMatch(email);
+        }
+
+        public bool IsValidPhoneNumber(string phoneNumber)
+        {
+            string phoneNumberPattern = @"^(0|\+84)(3[2-9]|5[689]|7[06-9]|8[1-689]|9[0-46-9])[0-9]{7}$";
+            if (string.IsNullOrEmpty(phoneNumber))
+                return false;
+
+            // Remove spaces and hyphens for more lenient validation
+            phoneNumber = phoneNumber.Replace(" ", "").Replace("-", "");
+
+            // Create a Regex based on the specified pattern
+            Regex regex = new Regex(phoneNumberPattern);
+
+            // Check if the phone number matches the pattern
+            return regex.IsMatch(phoneNumber);
+        }
+
+        public bool IsValidTaxIdentificationNumber(string taxCode)
+        {
+            if (string.IsNullOrWhiteSpace(taxCode))
+                return false;
+
+            // Normalize by removing spaces
+            taxCode = taxCode.Replace(" ", "");
+
+            // Check if the tax code is either 10 or 13 digits long
+            if (taxCode.Length != 10 && taxCode.Length != 13)
+                return false;
+
+            // Check if all characters are digits
+            foreach (char c in taxCode)
+            {
+                if (!char.IsDigit(c))
+                    return false;
+            }
+
+            return true;
+        }
+
         public static DoanhNghiepBUS TimDoanhNghiepTheoMaDoanhNghiep(string MaDN)
         {
             if (string.IsNullOrEmpty(MaDN) || MaDN.Length != 5)
@@ -215,5 +285,7 @@ namespace PTTK.BUS
                 return result;
             }
         }
+
+
     }
 }

@@ -38,11 +38,6 @@ namespace PTTK.MH.ThemDNThanhVien
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -112,14 +107,14 @@ namespace PTTK.MH.ThemDNThanhVien
                 return;
             }
 
-            DoanhNghiepBUS phieuDangKy = new DoanhNghiepBUS(txt_TenCongTy.Text, txt_Email.Text.Trim(), txt_MST.Text.Trim(), txt_NguoiDaiDien.Text, txt_SDT.Text.Trim(), txt_DiaChi.Text, txt_Username.Text.Trim(), PTTK.Program.AppConfig.HashMatKhau(txt_Password.Text), "CHƯA DUYỆT");
+            DoanhNghiepBUS phieuDangKy = new DoanhNghiepBUS(txt_TenCongTy.Text, txt_Email.Text.Trim(), txt_MST.Text.Trim(), txt_NguoiDaiDien.Text, txt_SDT.Text.Trim(), txt_DiaChi.Text, txt_Username.Text.Trim(), DoanhNghiepBUS.Instance.HashMatKhau(txt_Password.Text), "CHƯA DUYỆT");
             bool tonTaiCheck = DoanhNghiepBUS.Instance.KiemTraThanhVien(txt_Username.Text, txt_MST.Text);
             if (tonTaiCheck)
             {
                 MessageBox.Show("Tên đăng nhập hoặc MST đã tồn tại");
                 return;
             }
-            if (!PTTK.Program.AppConfig.IsValidTaxIdentificationNumber(txt_MST.Text.Trim()))
+            if (!DoanhNghiepBUS.Instance.IsValidTaxIdentificationNumber(txt_MST.Text.Trim()))
             {
                 MessageBox.Show("Mã số thuế không hợp lệ");
                 return;
@@ -129,12 +124,12 @@ namespace PTTK.MH.ThemDNThanhVien
                 MessageBox.Show("Mật khẩu không khớp");
                 return;
             }
-            if (!PTTK.Program.AppConfig.IsValidEmail(txt_Email.Text.Trim()))
+            if (!DoanhNghiepBUS.Instance.IsValidEmail(txt_Email.Text.Trim()))
             {
                 MessageBox.Show("Email không hợp lệ");
                 return;
             }
-            if (!PTTK.Program.AppConfig.IsValidPhoneNumber(txt_SDT.Text.Trim()))
+            if (!DoanhNghiepBUS.Instance.IsValidPhoneNumber(txt_SDT.Text.Trim()))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ");
                 return;
@@ -193,7 +188,7 @@ namespace PTTK.MH.ThemDNThanhVien
                 lbl_CheckEmail.Text = "Vui lòng nhập email";
                 return;
             }
-            else if (!PTTK.Program.AppConfig.IsValidEmail(txt_Email.Text))
+            else if (!DoanhNghiepBUS.Instance.IsValidEmail(txt_Email.Text))
             {
                 lbl_CheckEmail.Text = "Email không hợp lệ";
                 return;

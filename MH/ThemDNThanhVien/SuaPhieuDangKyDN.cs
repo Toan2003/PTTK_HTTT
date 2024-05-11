@@ -50,7 +50,7 @@ namespace PTTK.MH.ThemDNThanhVien
                 lbl_CheckValidUsername.Text = "Vui lòng nhập tên đăng nhập";
                 return;
             }
-            else if (DoanhNghiepBUS.Instance.KiemTraTonTai(username, "Tên đăng nhập"))
+            else if (DoanhNghiepBUS.Instance.KiemTraTonTai(username, "Tên đăng nhập") && username != thongTinHienTai.Username)
             {
                 lbl_CheckValidUsername.Text = "Tên đăng nhập đã tồn tại";
             }
@@ -69,13 +69,17 @@ namespace PTTK.MH.ThemDNThanhVien
                 lbl_CheckValidMST.Text = "Vui lòng nhập mã số thuế";
                 return;
             }
-            else if (DoanhNghiepBUS.Instance.KiemTraTonTai(maSoThue, "MST"))
+            else if (DoanhNghiepBUS.Instance.KiemTraTonTai(maSoThue, "MST") && maSoThue != thongTinHienTai.MST)
             {
                 lbl_CheckValidMST.Text = "Mã số thuế đã tồn tại";
             }
-            else
+            else if (DoanhNghiepBUS.Instance.IsValidTaxIdentificationNumber(maSoThue))
             {
                 lbl_CheckValidMST.Text = "Mã số thuế hợp lệ";
+            }
+            else
+            {
+                lbl_CheckValidMST.Text = "Mã số thuế không hợp lệ";
             }
         }
 
@@ -89,28 +93,32 @@ namespace PTTK.MH.ThemDNThanhVien
                 txt_Username.Text.Trim() == thongTinHienTai.Username)
             {
                 MessageBox.Show("Không có thông tin nào thay đổi");
-                Dispose();
+                Close();
             }
             else
             {
-                bool tonTaiCheck = DoanhNghiepBUS.Instance.KiemTraThanhVien(txt_Username.Text.Trim(), txt_MaSoThue.Text.Trim());
-                if (tonTaiCheck)
+                if (DoanhNghiepBUS.Instance.KiemTraTonTai(txt_Username.Text, "Tên đăng nhập") && txt_Username.Text != thongTinHienTai.Username)
                 {
-                    MessageBox.Show("Tên đăng nhập hoặc MST đã tồn tại");
+                    MessageBox.Show("Tên đăng nhập đã tồn tại");
                     return;
                 }
-                if (!PTTK.Program.AppConfig.IsValidTaxIdentificationNumber(txt_MaSoThue.Text))
+                if (DoanhNghiepBUS.Instance.KiemTraTonTai(txt_MaSoThue.Text, "MST") && txt_MaSoThue.Text != thongTinHienTai.MST)
+                {
+                    MessageBox.Show("Mã số thuế đã tồn tại");
+                    return;
+                }
+                if (!DoanhNghiepBUS.Instance.IsValidTaxIdentificationNumber(txt_MaSoThue.Text))
                 {
                     MessageBox.Show("Mã số thuế không hợp lệ");
                     return;
                 }
 
-                if (!PTTK.Program.AppConfig.IsValidEmail(txt_EmailLienHe.Text))
+                if (!DoanhNghiepBUS.Instance.IsValidEmail(txt_EmailLienHe.Text))
                 {
                     MessageBox.Show("Email không hợp lệ");
                     return;
                 }
-                if (!PTTK.Program.AppConfig.IsValidPhoneNumber(txt_SDT.Text))
+                if (!DoanhNghiepBUS.Instance.IsValidPhoneNumber(txt_SDT.Text))
                 {
                     MessageBox.Show("Số điện thoại không hợp lệ");
                     return;
@@ -129,7 +137,6 @@ namespace PTTK.MH.ThemDNThanhVien
                     MessageBox.Show("Sửa phiếu đăng ký thành công");
                     this.DialogResult = DialogResult.OK;
                     Close();
-                    Dispose();
                 }
                 else
                 {
@@ -142,7 +149,7 @@ namespace PTTK.MH.ThemDNThanhVien
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Close();
         }
 
         private void txt_Username_TextChanged(object sender, EventArgs e)

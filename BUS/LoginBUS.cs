@@ -1,11 +1,7 @@
 ﻿using PTTK.DBO;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using static PTTK.Program;
 
 namespace PTTK.BUS
@@ -24,7 +20,7 @@ namespace PTTK.BUS
             // Kiểm tra đăng nhập của ứng viên
             if (loginDBO.CheckCandidateLogin(username, password))
             {
-                password = AppConfig.HashMatKhau(password);
+                password = this.HashMatKhau(password);
                 DataTable table = loginDBO.LayMaUV(username, password);
                 DataRow row = table.Rows[0];
                 AppConfig.UsernameID = row["MAUNGVIEN"].ToString();
@@ -35,7 +31,7 @@ namespace PTTK.BUS
             // Kiểm tra đăng nhập của doanh nghiệp
             if (loginDBO.CheckBusinessLogin(username, password))
             {
-                password = AppConfig.HashMatKhau(password);
+                password = this.HashMatKhau(password);
                 DataTable table = loginDBO.LayMaDN(username, password);
                 DataRow row = table.Rows[0];
                 AppConfig.UsernameID = row["MADN"].ToString();
@@ -54,6 +50,27 @@ namespace PTTK.BUS
             }
 
             return null;
+        }
+
+        public string HashMatKhau(string matKhau)
+        {
+            using (MD5 md5Hash = MD5.Create())
+            {
+                // Chuyển đổi mật khẩu thành mảng byte
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(matKhau));
+
+                // Tạo một StringBuilder để lưu trữ các byte đã được chuyển đổi thành chuỗi hex
+                StringBuilder stringBuilder = new StringBuilder();
+
+                // Lặp qua mỗi byte của mảng đã chuyển đổi và chuyển đổi nó thành một chuỗi hex
+                for (int i = 0; i < data.Length; i++)
+                {
+                    stringBuilder.Append(data[i].ToString("x2"));
+                }
+
+                // Trả về chuỗi hex đã được tạo
+                return stringBuilder.ToString();
+            }
         }
     }
 }

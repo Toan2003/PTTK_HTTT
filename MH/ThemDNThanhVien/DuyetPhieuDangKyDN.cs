@@ -6,10 +6,21 @@ namespace PTTK.MH.ThemDNThanhVien
 {
     public partial class DuyetPhieuDangKyDN : Form
     {
-        public DuyetPhieuDangKyDN()
+        private Form parent;
+        public DuyetPhieuDangKyDN(Form parent)
         {
             InitializeComponent();
             HienThi();
+            this.parent = parent;
+            this.FormClosing += DuyetPhieuDangKyDN_FormClosing;
+        }
+
+        private void DuyetPhieuDangKyDN_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                parent.Show();
+            }
         }
 
         public void HienThi()

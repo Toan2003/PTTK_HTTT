@@ -1,13 +1,7 @@
 ﻿using PTTK.MH.LapPhieuCCTTDT;
 using PTTK.MH.ThanhToan;
+using PTTK.MH.ThemDNThanhVien;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PTTK.MH.Dashboard
@@ -50,6 +44,14 @@ namespace PTTK.MH.Dashboard
         {
             MessageBox.Show("Đăng xuất thành công!");
             this.Close();
+        }
+
+        private void btn_DuyetDoanhNghiep_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DuyetPhieuDangKyDN duyetPhieuDangKyDN = new DuyetPhieuDangKyDN(this);
+            duyetPhieuDangKyDN.ShowDialog();
+
         }
     }
 }

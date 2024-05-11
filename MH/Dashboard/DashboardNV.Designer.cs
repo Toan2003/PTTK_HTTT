@@ -32,12 +32,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_DangXuat = new System.Windows.Forms.Button();
+            this.btn_DuyetDoanhNghiep = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(169, 140);
+            this.button1.Location = new System.Drawing.Point(144, 140);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 100);
             this.button1.TabIndex = 0;
@@ -48,7 +49,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(486, 140);
+            this.button2.Location = new System.Drawing.Point(530, 140);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 100);
             this.button2.TabIndex = 1;
@@ -81,11 +82,23 @@
             this.btn_DangXuat.UseVisualStyleBackColor = true;
             this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
+            // btn_DuyetDoanhNghiep
+            // 
+            this.btn_DuyetDoanhNghiep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DuyetDoanhNghiep.Location = new System.Drawing.Point(333, 140);
+            this.btn_DuyetDoanhNghiep.Name = "btn_DuyetDoanhNghiep";
+            this.btn_DuyetDoanhNghiep.Size = new System.Drawing.Size(156, 100);
+            this.btn_DuyetDoanhNghiep.TabIndex = 5;
+            this.btn_DuyetDoanhNghiep.Text = "Duyệt Doanh nghiệp";
+            this.btn_DuyetDoanhNghiep.UseVisualStyleBackColor = true;
+            this.btn_DuyetDoanhNghiep.Click += new System.EventHandler(this.btn_DuyetDoanhNghiep_Click);
+            // 
             // DashboardNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 372);
+            this.Controls.Add(this.btn_DuyetDoanhNghiep);
             this.Controls.Add(this.btn_DangXuat);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -103,5 +116,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_DangXuat;
+        private System.Windows.Forms.Button btn_DuyetDoanhNghiep;
     }
 }
