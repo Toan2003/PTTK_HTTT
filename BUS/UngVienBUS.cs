@@ -89,7 +89,6 @@ namespace PTTK.BUS
         public int ThemUngVien(UngVienBUS ungVien)
         {            
 
-            // Kiểm tra xem tài khoản đã tồn tại chưa
             if (ungVienDBO.KiemTraTonTai(ungVien.SoDienThoai))
             {
                 return 100;
@@ -119,7 +118,7 @@ namespace PTTK.BUS
             return regex.IsMatch(email);
         }
 
-        string HashMatKhau(string matKhau)
+        public string HashMatKhau(string matKhau)
         {
             using (MD5 md5Hash = MD5.Create())
             {
