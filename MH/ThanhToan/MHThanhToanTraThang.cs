@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PTTK.Program;
 
 namespace PTTK.MH.ThanhToan
 {
     public partial class MHThanhToanTraThang : Form
     {
         PhieuDangTuyenBUS phieu;
-        string MANV = "NV001";
+        string MANV = AppConfig.UsernameID;
         public MHThanhToanTraThang(PhieuDangTuyenBUS phieu, string TongTien)
         {
             InitializeComponent();

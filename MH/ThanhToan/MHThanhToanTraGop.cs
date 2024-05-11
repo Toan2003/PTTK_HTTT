@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static PTTK.Program;
 
 namespace PTTK.MH.ThanhToan
 {
     public partial class MHThanhToanTraGop : Form
     {
         PhieuDangTuyenBUS phieu;
-        string MaNV = "NV001";
+        string MaNV = AppConfig.UsernameID;
         bool isFirstTime;
         DataTable Lich;
         public MHThanhToanTraGop(PhieuDangTuyenBUS phieu, bool isFirstTime)

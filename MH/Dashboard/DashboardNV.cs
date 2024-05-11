@@ -14,9 +14,20 @@ namespace PTTK.MH.Dashboard
 {
     public partial class DashboardNV : Form
     {
-        public DashboardNV()
+        private Form parentForm;
+        public DashboardNV(Form parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
+            this.FormClosing += DashboardNV_FormClosing;
+        }
+
+        private void DashboardNV_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                parentForm.Show();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,5 +46,10 @@ namespace PTTK.MH.Dashboard
             this.Show();
         }
 
+        private void btn_DangXuat_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Đăng xuất thành công!");
+            this.Close();
+        }
     }
 }
