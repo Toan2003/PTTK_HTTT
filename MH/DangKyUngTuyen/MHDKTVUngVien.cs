@@ -21,7 +21,7 @@ namespace PTTK.MH.DangKyUngTuyen
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                parent.Close();
+                parent.Show();
             }
         }
 
@@ -49,8 +49,9 @@ namespace PTTK.MH.DangKyUngTuyen
             {
                 MessageBox.Show("Đăng ký thành viên thành công!");
                 this.Close(); // Đóng form đăng ký sau khi đăng nhập thành công
-                DashboardUV dashboardForm = new DashboardUV();
+                DashboardUV dashboardForm = new DashboardUV(parent);
                 dashboardForm.Show();
+                parent.Hide();
             }
             else if (kq == 100)
             {

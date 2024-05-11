@@ -31,14 +31,13 @@ namespace PTTK.MH
             LoginBUS loginBUS = new LoginBUS();
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
-            password = AppConfig.HashMatKhau(password);
 
             string role = loginBUS.Login(username, password);
 
             if (role == "Candidate")
             {
                 this.Hide();
-                DashboardUV dashboardForm = new DashboardUV();
+                DashboardUV dashboardForm = new DashboardUV(this);
                 dashboardForm.Show();
                 Clear_Textboxes();
             }
@@ -53,7 +52,7 @@ namespace PTTK.MH
             else if (role == "Employee")
             {
                 this.Hide();
-                DashboardNV dashboardForm = new DashboardNV();
+                DashboardNV dashboardForm = new DashboardNV(this);
                 dashboardForm.Show();
                 Clear_Textboxes();
             }

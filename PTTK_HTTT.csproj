@@ -65,7 +65,6 @@
     <Compile Include="BUS\DoanhNghiepBUS.cs" />
     <Compile Include="BUS\LichTraGopBUS.cs" />
     <Compile Include="BUS\DoanhNghiepBUS.cs" />
-    <Compile Include="DataProvider\DataProvider.cs" />
     <Compile Include="DBO\DoanhNghiepDBO.cs" />
     <Compile Include="BUS\LoginBUS.cs" />
     <Compile Include="BUS\DichVuBUS.cs" />
@@ -158,7 +157,6 @@
     <Compile Include="MH\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    
     <Compile Include="MH\ThanhToan\MHThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,16 +172,15 @@
     <Compile Include="MH\ThanhToan\MHThanhToanTraGop.cs">
       <SubType>Form</SubType>
     </Compile>
-	  
-	<Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.cs">
-		<SubType>Form</SubType>
-	</Compile>
-	<Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.Designer.cs">
-		<DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
-	</Compile>
-	<Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.cs">
-		<SubType>Form</SubType>
-	</Compile>
+    <Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.Designer.cs">
+      <DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\ThemDNThanhVien\SuaPhieuDangKyDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MH\ThanhToan\MHThanhToanTraGop.Designer.cs">
       <DependentUpon>MHThanhToanTraGop.cs</DependentUpon>
     </Compile>
@@ -214,6 +211,9 @@
     <EmbeddedResource Include="MH\DangKyUngTuyen\MHDKTVUngVien.resx">
       <DependentUpon>MHDKTVUngVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MH\Dashboard\DashboardUV.resx">
+      <DependentUpon>DashboardUV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\DkiDN_UV.resx">
       <DependentUpon>DkiDN_UV.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,19 +235,18 @@
     <EmbeddedResource Include="MH\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-      <EmbeddedResource Include="MH\ThanhToan\MHThanhToan.resx">
-		  <DependentUpon>MHThanhToan.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="MH\ThanhToan\MHThanhToan.resx">
+      <DependentUpon>MHThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\ThanhToan\MHThanhToanTraThang.resx">
       <DependentUpon>MHThanhToanTraThang.cs</DependentUpon>
-	</EmbeddedResource>
-	<EmbeddedResource Include="MH\ThanhToan\MHThanhToanTraGop.resx">
-		<DependentUpon>MHThanhToanTraGop.cs</DependentUpon>
-	</EmbeddedResource>
-	<EmbeddedResource Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.resx">
-		<DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
-	</EmbeddedResource>
-    
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\ThanhToan\MHThanhToanTraGop.resx">
+      <DependentUpon>MHThanhToanTraGop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\ThemDNThanhVien\DuyetPhieuDangKyDN.resx">
+      <DependentUpon>DuyetPhieuDangKyDN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\DSGiaHanHopDong\LapDSGiaHanHopDong.resx">
       <DependentUpon>LapDSGiaHanHopDong.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,7 +282,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-	  <ItemGroup />
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>

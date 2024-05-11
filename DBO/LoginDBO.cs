@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,7 @@ namespace PTTK.DBO
         {
             try
             {
+
                 string query = $"SELECT COUNT(*) FROM UNGVIEN WHERE SODIENTHOAI = '{phoneNumber}' AND MATKHAU = '{password}'";
                 dataProvider.OpenConect();
                 object result = dataProvider.ExecuteScalar(query);
@@ -74,7 +77,7 @@ namespace PTTK.DBO
         {
             try
             {
-                string query = $"SELECT COUNT(*) FROM NHANVIEN WHERE MANV = '{employeeId}' AND MATKHAU = '{password}'";
+                string query = $"SELECT COUNT(*) FROM NHANVIEN WHERE MANV = '{employeeId}' AND MANV = '{password}'";
                 dataProvider.OpenConect();
                 object result = dataProvider.ExecuteScalar(query);
                 dataProvider.CloseConect();
@@ -95,6 +98,36 @@ namespace PTTK.DBO
                 return false;
             }
             
+        }
+
+        public DataTable LayMaUV(string phoneNumber, string password)
+        {
+            string query = $"SELECT MAUNGVIEN FROM UNGVIEN WHERE SODIENTHOAI = '{phoneNumber}' AND MATKHAU = '{password}'";
+
+            dataProvider.OpenConect();
+            DataTable result = dataProvider.ExecuteQuery(query);
+            dataProvider.CloseConect();
+            return result;
+        }
+
+        public DataTable LayMaDN(string username, string password)
+        {
+            string query = $"SELECT MADN FROM DOANHNGHIEP WHERE USERNAME = '{username}' AND PASSWORD = '{password}'";
+
+            dataProvider.OpenConect();
+            DataTable result = dataProvider.ExecuteQuery(query);
+            dataProvider.CloseConect();
+            return result;
+        }
+
+        public DataTable LayMaNV(string employeeId, string password)
+        {
+            string query = $"SELECT MANV FROM NHANVIEN WHERE MANV = '{employeeId}' AND MANV = '{password}'";
+
+            dataProvider.OpenConect();
+            DataTable result = dataProvider.ExecuteQuery(query);
+            dataProvider.CloseConect();
+            return result;
         }
     }
 }

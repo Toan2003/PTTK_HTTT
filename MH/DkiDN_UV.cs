@@ -34,7 +34,7 @@ namespace PTTK.MH
         private void btnUV_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MHDKTVUngVien f = new MHDKTVUngVien(this);
+            MHDKTVUngVien f = new MHDKTVUngVien(parent);
             f.ShowDialog();
         }
     }

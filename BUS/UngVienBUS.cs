@@ -1,7 +1,9 @@
 ﻿using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using PTTK.DBO;
-using static PTTK.Program;
 
 namespace PTTK.BUS
 {
@@ -58,7 +60,7 @@ namespace PTTK.BUS
                 return false;
             }
 
-            if (!AppConfig.IsValidEmail(email))
+            if (!IsValidEmail(email))
             {
                 MessageBox.Show("Email không hợp lệ.");
                 return false;
@@ -93,7 +95,7 @@ namespace PTTK.BUS
                 return 100;
             }
 
-            ungVien.MatKhau = AppConfig.HashMatKhau(ungVien.MatKhau); 
+            ungVien.MatKhau = HashMatKhau(ungVien.MatKhau); 
             if (ungVienDBO.ThemUngVien(ungVien))
             {
                 return 1;
@@ -103,6 +105,39 @@ namespace PTTK.BUS
                 return 0;
             }
 
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            // Biểu thức chính quy để kiểm tra địa chỉ email
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            // Tạo một đối tượng Regex từ biểu thức chính quy
+            Regex regex = new Regex(pattern);
+
+            // Kiểm tra xem địa chỉ email có khớp với biểu thức chính quy không
+            return regex.IsMatch(email);
+        }
+
+        string HashMatKhau(string matKhau)
+        {
+            using (MD5 md5Hash = MD5.Create())
+            {
+                // Chuyển đổi mật khẩu thành mảng byte
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(matKhau));
+
+                // Tạo một StringBuilder để lưu trữ các byte đã được chuyển đổi thành chuỗi hex
+                StringBuilder stringBuilder = new StringBuilder();
+
+                // Lặp qua mỗi byte của mảng đã chuyển đổi và chuyển đổi nó thành một chuỗi hex
+                for (int i = 0; i < data.Length; i++)
+                {
+                    stringBuilder.Append(data[i].ToString("x2"));
+                }
+
+                // Trả về chuỗi hex đã được tạo
+                return stringBuilder.ToString();
+            }
         }
 
     }
