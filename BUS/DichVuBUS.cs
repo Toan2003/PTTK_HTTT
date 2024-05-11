@@ -28,13 +28,13 @@ namespace PTTK.BUS
 
             if (dataTable == null || dataTable.Rows.Count == 0)
             {
-                MessageBox.Show("Không có kết quả trả về");
+                //MessageBox.Show("Không có kết quả trả về");
                 return null;
             }
             else
             {
                 DataRow row = dataTable.Rows[0];
-                MessageBox.Show(row["MADV"].ToString());
+                //MessageBox.Show(row["MADV"].ToString());
                 return row["MADV"].ToString();
             }
             return null;

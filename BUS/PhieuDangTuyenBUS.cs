@@ -83,14 +83,15 @@ namespace PTTK.BUS
                 //MessageBox.Show("Vị trí ứng tuyển không quá 20 chữ");
                 return -5;
             }
+            
+            //MessageBox.Show(pdt.MaPDT); 
+            pdt.MaDV=DichVuBUS.LayMaDichVu(pdt.MaDV);
             pdt.MaPDT = TaoMaPDT();
             if (pdt.MaPDT == null)
             {
                 //MessageBox.Show("Không thể thêm thành công");
                 return -6;
             }
-            //MessageBox.Show(pdt.MaPDT); 
-            pdt.MaDV=DichVuBUS.LayMaDichVu(pdt.MaDV);
             int result = pdtDBO.ThemPhieuDangTuyen(pdt);
             return result;
         }
