@@ -55,7 +55,7 @@ namespace PTTK.MH.DangKyUngTuyen
             }
             else if (kq == 100)
             {
-                DialogResult result = MessageBox.Show("Tài khoản đã tồn tại. Bạn có muốn đăng ký tài khoản khác không?", "Thông báo", MessageBoxButtons.YesNo);
+                DialogResult result = ThongBao();
                 if (result == DialogResult.Yes)
                 {
                     // Xóa thông tin người dùng nhập và quay lại bước 2
@@ -73,6 +73,12 @@ namespace PTTK.MH.DangKyUngTuyen
             {
                 MessageBox.Show("Đăng ký không thành công, vui lòng thử lại sau !");
             }
+        }
+    
+        private DialogResult ThongBao()
+        {
+            DialogResult result = MessageBox.Show("Tài khoản đã tồn tại. Bạn có muốn đăng ký tài khoản khác không?", "Thông báo", MessageBoxButtons.YesNo);
+            return result;
         }
     }
 }

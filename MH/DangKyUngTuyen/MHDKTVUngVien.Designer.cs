@@ -202,7 +202,7 @@
             this.Controls.Add(this.txtHoTen);
             this.Name = "MHDKTVUngVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MHDKTVUngVien";
+            this.Text = "Đăng kí";
             this.ResumeLayout(false);
             this.PerformLayout();
 
