@@ -6,14 +6,8 @@ namespace PTTK.DBO
 {
     internal class DataProvider
     {
-        /*TOAN*/
-        //string connectionString = "Data Source=MSI;Initial Catalog=PTTK;Integrated Security=True;";
-        /*HOA*/
-        /*        string connectionString = "Data Source=.;Initial Catalog=PTTK;Integrated Security=True";
-        */        /*TheAnh*/
-        string connectionString = @"Data Source=LAPTOP-I679ENGR;Initial Catalog=PTTK;Integrated Security=True;TrustServerCertificate=True";
-        /*DUY*//* string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=PTTK;Integrated Security=True";
-*/
+        /*DUY*/ string connectionString = "Data Source=LAPTOP-C56AI2D0;Initial Catalog=PTTK;Integrated Security=True";
+
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter adt;

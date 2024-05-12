@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System.Data;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using PTTK.DBO;
+using System;
 
 namespace PTTK.BUS
 {
@@ -18,13 +20,24 @@ namespace PTTK.BUS
         public string SoDienThoai { get; set; }
         public string MatKhau { get; set; }
 
+        public UngVienBUS()
+        {
+            
+        }
         public UngVienBUS(string hoTen, string email, string diaChi, string soDienThoai, string matKhau)
         {
             ungVienDBO = new UngVienDBO();
 
             string maUngVien = "UV000001"; // Giả sử mã ứng viên bắt đầu từ UV00000001
+            string maxMaUngVien = "";
 
-            string maxMaUngVien = ungVienDBO.GetMaxMaUngVien();
+            DataTable result = ungVienDBO.LayMaxMaUngVien(); ;
+            if (result != null && result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value)
+            {
+                 maxMaUngVien = result.Rows[0][0].ToString();
+            }
+
+            
             if (!string.IsNullOrEmpty(maxMaUngVien))
             {
                 string currentNumberString = maxMaUngVien.Substring(2); // Lấy phần số từ mã ứng viên hiện tại
@@ -88,14 +101,14 @@ namespace PTTK.BUS
 
         public int ThemUngVien(UngVienBUS ungVien)
         {            
-
-            if (ungVienDBO.KiemTraTonTai(ungVien.SoDienThoai))
+            //Kiểm tra tồn tại
+            if (ungVienDBO.LayThongTinUV(ungVien.SoDienThoai) > 0)
             {
                 return 100;
             }
 
             ungVien.MatKhau = HashMatKhau(ungVien.MatKhau); 
-            if (ungVienDBO.ThemUngVien(ungVien))
+            if (ungVienDBO.ThemUngVien(ungVien) > 0)
             {
                 return 1;
             }

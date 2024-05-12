@@ -13,7 +13,7 @@ namespace PTTK.DBO
             DataProvider = new DataProvider();
         }
 
-        public bool KiemTraTonTai(string soDienThoai)
+        public int LayThongTinUV(string soDienThoai)
         {
             string query = "SELECT COUNT(*) FROM UNGVIEN WHERE SODIENTHOAI = '" + soDienThoai + "'";
 
@@ -22,16 +22,10 @@ namespace PTTK.DBO
             int result = (int)DataProvider.ExecuteScalar(query);
             DataProvider.CloseConect();
 
-            if (result > 0)//result != null && result.Rows.Count > 0)
-            {
-                return true;
-            }
-
-
-            return false;
+            return result;
         }
 
-        public string GetMaxMaUngVien()
+        public DataTable LayMaxMaUngVien()
         {
             string query = "SELECT MAX(MAUNGVIEN) FROM UNGVIEN";
 
@@ -39,15 +33,12 @@ namespace PTTK.DBO
             DataTable result = DataProvider.ExecuteQuery(query);
             DataProvider.CloseConect();
 
-            if (result != null && result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value)
-            {
-                return result.Rows[0][0].ToString();
-            }
+            return result;
 
-            return "";
+            
         }
 
-        public bool ThemUngVien(UngVienBUS ungVien)
+        public int ThemUngVien(UngVienBUS ungVien)
         {
             string maUngVien = ungVien.MaUngVien;
             string hoTen = ungVien.HoTen;
@@ -63,15 +54,7 @@ namespace PTTK.DBO
             int result = DataProvider.ExecuteNonQuery(query);
             DataProvider.CloseConect();
 
-            if (result > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
+            return result;
 
         }
     }
